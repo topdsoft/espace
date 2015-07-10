@@ -9,6 +9,8 @@ App::uses('AppModel', 'Model');
  */
 class Member extends AppModel {
 
+	public $displayField = 'username';
+
 /**
  * Validation rules
  *
@@ -24,6 +26,10 @@ class Member extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
+			'unique' => array(
+				'rule' => array('isUnique'),
+				'message' => 'This username is taken',
+				),
 		),
 		'email' => array(
 			'email' => array(
@@ -56,8 +62,8 @@ class Member extends AppModel {
 			),
 		),
 		'paid_until' => array(
-			'datetime' => array(
-				'rule' => array('datetime'),
+			'date' => array(
+				'rule' => array('date'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -95,7 +101,7 @@ class Member extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'hrs_left_montlhy' => array(
+		'hrs_left_monthly' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',

@@ -14,7 +14,7 @@
 		echo $this->Form->input('barcode_hash');
 		echo $this->Form->input('company');
 		echo $this->Form->input('hrs_left');
-		echo $this->Form->input('hrs_left_montlhy');
+		echo $this->Form->input('hrs_left_monthly');
 		echo $this->Form->input('waver');
 		echo $this->Form->input('Course');
 	?>

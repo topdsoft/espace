@@ -14,7 +14,7 @@
 			<th><?php echo $this->Paginator->sort('barcode_hash'); ?></th>
 			<th><?php echo $this->Paginator->sort('company'); ?></th>
 			<th><?php echo $this->Paginator->sort('hrs_left'); ?></th>
-			<th><?php echo $this->Paginator->sort('hrs_left_montlhy'); ?></th>
+			<th><?php echo $this->Paginator->sort('hrs_left_monthly'); ?></th>
 			<th><?php echo $this->Paginator->sort('waver'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
@@ -33,7 +33,7 @@
 		<td><?php echo h($member['Member']['barcode_hash']); ?>&nbsp;</td>
 		<td><?php echo h($member['Member']['company']); ?>&nbsp;</td>
 		<td><?php echo h($member['Member']['hrs_left']); ?>&nbsp;</td>
-		<td><?php echo h($member['Member']['hrs_left_montlhy']); ?>&nbsp;</td>
+		<td><?php echo h($member['Member']['hrs_left_monthly']); ?>&nbsp;</td>
 		<td><?php echo h($member['Member']['waver']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $member['Member']['id'])); ?>

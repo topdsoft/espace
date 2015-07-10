@@ -56,9 +56,9 @@
 			<?php echo h($member['Member']['hrs_left']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Hrs Left Montlhy'); ?></dt>
+		<dt><?php echo __('Hrs Left Monthly'); ?></dt>
 		<dd>
-			<?php echo h($member['Member']['hrs_left_montlhy']); ?>
+			<?php echo h($member['Member']['hrs_left_monthly']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Waver'); ?></dt>
