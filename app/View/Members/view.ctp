@@ -121,25 +121,15 @@
 	<?php if (!empty($member['Payment'])): ?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
-		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Created'); ?></th>
-		<th><?php echo __('Member Id'); ?></th>
+		<th><?php echo __('Date'); ?></th>
 		<th><?php echo __('Amount'); ?></th>
 		<th><?php echo __('Payment Type'); ?></th>
-		<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($member['Payment'] as $payment): ?>
 		<tr>
-			<td><?php echo $payment['id']; ?></td>
 			<td><?php echo $payment['created']; ?></td>
-			<td><?php echo $payment['member_id']; ?></td>
 			<td><?php echo $payment['amount']; ?></td>
 			<td><?php echo $payment['payment_type']; ?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'payments', 'action' => 'view', $payment['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'payments', 'action' => 'edit', $payment['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'payments', 'action' => 'delete', $payment['id']), array(), __('Are you sure you want to delete # %s?', $payment['id'])); ?>
-			</td>
 		</tr>
 	<?php endforeach; ?>
 	</table>
@@ -156,35 +146,15 @@
 	<?php if (!empty($member['Course'])): ?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
-		<th><?php echo __('Id'); ?></th>
 		<th><?php echo __('Instructor Id'); ?></th>
-		<th><?php echo __('Created'); ?></th>
 		<th><?php echo __('Name'); ?></th>
-		<th><?php echo __('Description'); ?></th>
 		<th><?php echo __('Cost'); ?></th>
-		<th><?php echo __('Max Students'); ?></th>
-		<th><?php echo __('Min Students'); ?></th>
-		<th><?php echo __('Textbook'); ?></th>
-		<th><?php echo __('Materials'); ?></th>
-		<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($member['Course'] as $course): ?>
 		<tr>
-			<td><?php echo $course['id']; ?></td>
 			<td><?php echo $course['instructor_id']; ?></td>
-			<td><?php echo $course['created']; ?></td>
 			<td><?php echo $course['name']; ?></td>
-			<td><?php echo $course['description']; ?></td>
 			<td><?php echo $course['cost']; ?></td>
-			<td><?php echo $course['max_students']; ?></td>
-			<td><?php echo $course['min_students']; ?></td>
-			<td><?php echo $course['textbook']; ?></td>
-			<td><?php echo $course['materials']; ?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'courses', 'action' => 'view', $course['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'courses', 'action' => 'edit', $course['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'courses', 'action' => 'delete', $course['id']), array(), __('Are you sure you want to delete # %s?', $course['id'])); ?>
-			</td>
 		</tr>
 	<?php endforeach; ?>
 	</table>
