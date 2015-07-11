@@ -97,8 +97,8 @@ class Course extends AppModel {
  * @var array
  */
 	public $hasMany = array(
-		'Session' => array(
-			'className' => 'Session',
+		'CourseSession' => array(
+			'className' => 'CourseSession',
 			'foreignKey' => 'course_id',
 			'dependent' => false,
 			'conditions' => '',

@@ -31,4 +31,23 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
+	var $PAYMENT_TYPES=array(
+		1=>'Credit Card',
+		2=>'PayPal 1 Time',
+		3=>'PayPal Reacuring',
+		4=>'Cash',
+		5=>'Check',
+	);
+	var $MEMBER_TYPES=array(
+		1=>'Admin',
+		2=>'Full Member',
+		3=>'Steward',
+		4=>'Student',
+	);
+
+	function beforeFilter() {
+		$this->set('PAYMENT_TYPES', $this->PAYMENT_TYPES);
+		$this->set("MEMBER_TYPES", $this->MEMBER_TYPES);
+	}
+
 }

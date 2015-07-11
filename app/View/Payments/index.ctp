@@ -8,7 +8,7 @@
 			<th><?php echo $this->Paginator->sort('member_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('amount'); ?></th>
 			<th><?php echo $this->Paginator->sort('payment_type'); ?></th>
-			<th class="actions"><?php echo __('Actions'); ?></th>
+			<th class="actions"></th>
 	</tr>
 	</thead>
 	<tbody>
@@ -17,14 +17,12 @@
 		<td><?php echo h($payment['Payment']['id']); ?>&nbsp;</td>
 		<td><?php echo h($payment['Payment']['created']); ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($payment['Member']['id'], array('controller' => 'members', 'action' => 'view', $payment['Member']['id'])); ?>
+			<?php echo $this->Html->link($payment['Member']['username'], array('controller' => 'members', 'action' => 'view', $payment['Member']['id'])); ?>
 		</td>
 		<td><?php echo h($payment['Payment']['amount']); ?>&nbsp;</td>
-		<td><?php echo h($payment['Payment']['payment_type']); ?>&nbsp;</td>
+		<td><?php echo h($PAYMENT_TYPES[$payment['Payment']['payment_type']]); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $payment['Payment']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $payment['Payment']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $payment['Payment']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $payment['Payment']['id']))); ?>
+			<?php //echo $this->Html->link(__('View'), array('action' => 'view', $payment['Payment']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

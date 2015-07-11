@@ -15,7 +15,7 @@
 		echo $this->Form->input('hrs_left');
 		echo $this->Form->input('hrs_left_monthly');
 		echo $this->Form->input('waver');
-		echo $this->Form->input('Course');
+		//echo $this->Form->input('Course');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

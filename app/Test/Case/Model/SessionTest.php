@@ -15,7 +15,6 @@ class SessionTest extends CakeTestCase {
 	public $fixtures = array(
 		'app.session',
 		'app.course',
-		'app.instructor',
 		'app.member',
 		'app.login',
 		'app.payment',

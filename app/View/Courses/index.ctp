@@ -3,34 +3,26 @@
 	<table cellpadding="0" cellspacing="0">
 	<thead>
 	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('instructor_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('created'); ?></th>
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
 			<th><?php echo $this->Paginator->sort('description'); ?></th>
 			<th><?php echo $this->Paginator->sort('cost'); ?></th>
 			<th><?php echo $this->Paginator->sort('max_students'); ?></th>
 			<th><?php echo $this->Paginator->sort('min_students'); ?></th>
-			<th><?php echo $this->Paginator->sort('textbook'); ?></th>
-			<th><?php echo $this->Paginator->sort('materials'); ?></th>
-			<th class="actions"><?php echo __('Actions'); ?></th>
+			<th class="actions"></th>
 	</tr>
 	</thead>
 	<tbody>
 	<?php foreach ($courses as $course): ?>
 	<tr>
-		<td><?php echo h($course['Course']['id']); ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($course['Instructor']['id'], array('controller' => 'members', 'action' => 'view', $course['Instructor']['id'])); ?>
+			<?php echo $this->Html->link($course['Instructor']['username'], array('controller' => 'members', 'action' => 'view', $course['Instructor']['id'])); ?>
 		</td>
-		<td><?php echo h($course['Course']['created']); ?>&nbsp;</td>
 		<td><?php echo h($course['Course']['name']); ?>&nbsp;</td>
 		<td><?php echo h($course['Course']['description']); ?>&nbsp;</td>
 		<td><?php echo h($course['Course']['cost']); ?>&nbsp;</td>
 		<td><?php echo h($course['Course']['max_students']); ?>&nbsp;</td>
 		<td><?php echo h($course['Course']['min_students']); ?>&nbsp;</td>
-		<td><?php echo h($course['Course']['textbook']); ?>&nbsp;</td>
-		<td><?php echo h($course['Course']['materials']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $course['Course']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $course['Course']['id'])); ?>

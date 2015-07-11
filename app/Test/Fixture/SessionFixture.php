@@ -29,9 +29,9 @@ class SessionFixture extends CakeTestFixture {
 	public $records = array(
 		array(
 			'id' => 1,
-			'created' => '2015-07-10 14:59:22',
+			'created' => '2015-07-11 12:57:39',
 			'course_id' => 1,
-			'time' => '2015-07-10 14:59:22'
+			'time' => '2015-07-11 12:57:39'
 		),
 	);
 

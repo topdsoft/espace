@@ -5,8 +5,9 @@ App::uses('AppModel', 'Model');
  *
  * @property Course $Course
  */
-class Session extends AppModel {
+class CourseSession extends AppModel {
 
+	public $useTable ="courseSessions";
 /**
  * Validation rules
  *
