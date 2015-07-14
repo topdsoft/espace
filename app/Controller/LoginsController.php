@@ -48,16 +48,23 @@ class LoginsController extends AppController {
  */
 	public function add() {
 		if ($this->request->is('post')) {
+			//check for scan code
+			$member=$this->Login->Member->find('first',array('conditions'=>array('Member.barcode_hash'=>$this->request->data['Login']['scan'])));
+//debug($member);
+//debug($this->request->data);//exit();
+
+			$this->set('member',$member);
+/*
 			$this->Login->create();
 			if ($this->Login->save($this->request->data)) {
 				$this->Session->setFlash(__('The login has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The login could not be saved. Please, try again.'));
-			}
+			}//*/
 		}
-		$members = $this->Login->Member->find('list');
-		$this->set(compact('members'));
+//		$members = $this->Login->Member->find('list');
+//		$this->set(compact('members'));
 	}
 
 /**
