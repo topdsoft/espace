@@ -7,12 +7,12 @@
 		//branch depending on if this is a first scan or if the member in confirming
 		if(isset($member)) {
 			//member is confirming scan
-debug($member);
+//debug($member);
 			echo "<p>Thank You ";
 			echo $member['Member']['first_name']." ".$member['Member']['last_name'];
 			echo "</p>";
 			echo "<p>You have <strong>".$member['Member']['hrs_left_monthly']."</strong> left to use this month.</p>";
-			echo "Scan your member card to confirm";
+			echo "Scan your member card to confirm you're logging in:";
 			echo $this->Form->input('scan',array('label'=>""));
 		} else {
 			//waiting for new member to scan

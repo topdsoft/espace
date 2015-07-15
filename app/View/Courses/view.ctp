@@ -91,7 +91,7 @@
 	</div>
 </div>
 <div class="related">
-	<h3><?php echo __('Members'); ?></h3>
+	<h3><?php echo __('Enrolled Students'); ?></h3>
 	<?php if (!empty($course['Member'])): ?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>

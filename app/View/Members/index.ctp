@@ -9,10 +9,10 @@
 			<th><?php echo $this->Paginator->sort('first_name'); ?></th>
 			<th><?php echo $this->Paginator->sort('last_name'); ?></th>
 			<th><?php echo $this->Paginator->sort('paid_until'); ?></th>
-			<th><?php echo $this->Paginator->sort('access_level'); ?></th>
-			<th><?php echo $this->Paginator->sort('company'); ?></th>
 			<th><?php echo $this->Paginator->sort('hrs_left'); ?></th>
 			<th><?php echo $this->Paginator->sort('hrs_left_monthly'); ?></th>
+			<th><?php echo $this->Paginator->sort('access_level'); ?></th>
+			<th><?php echo $this->Paginator->sort('company'); ?></th>
 			<th class="actions"></th>
 	</tr>
 	</thead>
@@ -25,10 +25,10 @@
 		<td><?php echo h($member['Member']['first_name']); ?>&nbsp;</td>
 		<td><?php echo h($member['Member']['last_name']); ?>&nbsp;</td>
 		<td><?php echo h($member['Member']['paid_until']); ?>&nbsp;</td>
-		<td><?php echo h($MEMBER_TYPES[$member['Member']['access_level']]); ?>&nbsp;</td>
-		<td><?php echo h($member['Member']['company']); ?>&nbsp;</td>
 		<td><?php echo h($member['Member']['hrs_left']); ?>&nbsp;</td>
 		<td><?php echo h($member['Member']['hrs_left_monthly']); ?>&nbsp;</td>
+		<td><?php echo h($MEMBER_TYPES[$member['Member']['access_level']]); ?>&nbsp;</td>
+		<td><?php echo h($member['Member']['company']); ?>&nbsp;</td>
 			<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $member['Member']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $member['Member']['id'])); ?>

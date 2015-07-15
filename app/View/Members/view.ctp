@@ -61,7 +61,7 @@
 			<?php echo h($member['Member']['hrs_left_monthly']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Waver'); ?></dt>
+		<dt><?php echo __('Waiver'); ?></dt>
 		<dd>
 			<?php echo h($member['Member']['waver']); ?>
 			&nbsp;
