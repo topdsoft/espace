@@ -51,6 +51,11 @@
 			<?php echo h($course['Course']['materials']); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Session Length'); ?></dt>
+		<dd>
+			<?php echo h($course['Course']['session_duration']).' hrs.'; ?>
+			&nbsp;
+		</dd>
 	</dl>
 </div>
 <div class="actions">
@@ -86,7 +91,7 @@
 
 	<div class="actions">
 		<ul>
-			<li><?php echo $this->Html->link(__('New Session'), array('controller' => 'courseSessions', 'action' => 'add')); ?> </li>
+			<li><?php echo $this->Html->link(__('New Session'), array('controller' => 'courseSessions', 'action' => 'add','course_id'=>$course['Course']['id'])); ?> </li>
 		</ul>
 	</div>
 </div>

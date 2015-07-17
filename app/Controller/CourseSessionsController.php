@@ -44,9 +44,22 @@ class CourseSessionsController extends AppController {
 /**
  * add method
  *
+ * course_id passed arg to pre-select course_id
+ * 
  * @return void
  */
 	public function add() {
+		//check for course_id passed parameter
+//debug($this->passedArgs);
+		if(isset($this->passedArgs['course_id'])) {
+			//course_id has been passed
+			$course=$this->CourseSession->Course->find('first',array('conditions'=>array('Course.id'=>$this->passedArgs['course_id'])));
+			if($course){
+				//course id is valid
+				$this->request->data['CourseSession']['course_id']=$this->passedArgs['course_id'];
+				$this->set('course',$course);
+			}//endif
+		}//endif
 		if ($this->request->is('post')) {
 			$this->CourseSession->create();
 			if ($this->CourseSession->save($this->request->data)) {

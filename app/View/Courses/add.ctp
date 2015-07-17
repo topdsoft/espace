@@ -11,7 +11,7 @@
 		echo $this->Form->input('min_students');
 		echo $this->Form->input('textbook');
 		echo $this->Form->input('materials');
-		//echo $this->Form->input('Member');
+		echo $this->Form->input('session_duration',array('label'=>'Session Length in Hrs'));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

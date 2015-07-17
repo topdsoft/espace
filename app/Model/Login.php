@@ -7,6 +7,7 @@ App::uses('AppModel', 'Model');
  */
 class Login extends AppModel {
 
+	public $order='Login.id desc';
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 

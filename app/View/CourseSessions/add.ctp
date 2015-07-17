@@ -1,9 +1,26 @@
 <div class="courseSessions form">
 <?php echo $this->Form->create('CourseSession'); ?>
 	<fieldset>
-		<legend><?php echo __('Add Course Session'); ?></legend>
+		<legend><?php 
+			echo __('Add Course Session'); 
+			if(isset($course)) echo ' to '.$course['Course']['name'];
+		?></legend>
 	<?php
-		echo $this->Form->input('course_id');
+		if($this->data['CourseSession']['course_id']) {
+			//course_id is passed in
+			echo '<p><strong>Current Sessions</strong>';
+			foreach($course['CourseSession'] as $session) {
+				//loop for all sessions
+				echo '<br>'.$session['time'];
+			}//end foreach
+			
+			echo '</p>';
+//			echo $this->Form->input('course_id',array('label'=>'','hidden'=>true));
+		} else {
+			//let user select course
+			echo $this->Form->input('course_id');
+		}//endif
+//debug($course);
 		echo $this->Form->input('time');
 	?>
 	</fieldset>

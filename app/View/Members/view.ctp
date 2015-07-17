@@ -51,14 +51,14 @@
 			<?php echo h($member['Member']['company']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Hrs Left'); ?></dt>
+		<dt><?php echo __('Minutes Left'); ?></dt>
 		<dd>
-			<?php echo h($member['Member']['hrs_left']); ?>
+			<?php echo h($member['Member']['mins_left']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Hrs Left Monthly'); ?></dt>
+		<dt><?php echo __('Minutes Left Monthly'); ?></dt>
 		<dd>
-			<?php echo h($member['Member']['hrs_left_monthly']); ?>
+			<?php echo h($member['Member']['mins_left_monthly']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Waiver'); ?></dt>
@@ -84,26 +84,31 @@
 	</ul>
 </div>
 <div class="related">
-	<h3><?php echo __('Related Logins'); ?></h3>
+	<h3><?php echo __('Member Logins'); ?></h3>
 	<?php if (!empty($member['Login'])): ?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
-		<th><?php echo __('Id'); ?></th>
 		<th><?php echo __('Time In'); ?></th>
 		<th><?php echo __('Time Out'); ?></th>
-		<th><?php echo __('Member Id'); ?></th>
-		<th class="actions"><?php echo __('Actions'); ?></th>
+		<th><?php echo __('Duration'); ?></th>
+		<th></th>
 	</tr>
 	<?php foreach ($member['Login'] as $login): ?>
 		<tr>
-			<td><?php echo $login['id']; ?></td>
 			<td><?php echo $login['time_in']; ?></td>
 			<td><?php echo $login['time_out']; ?></td>
-			<td><?php echo $login['member_id']; ?></td>
+			<td><?php 
+				if($login['time_out']) {
+					//show duration
+					$timeIn=new DateTime($login['time_in']);
+					$timeOut=new DateTime($login['time_out']);
+					echo $timeIn->diff($timeOut)->format('%hh %im');
+				}//endif
+			?></td>
 			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'logins', 'action' => 'view', $login['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'logins', 'action' => 'edit', $login['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'logins', 'action' => 'delete', $login['id']), array(), __('Are you sure you want to delete # %s?', $login['id'])); ?>
+				<?php //echo $this->Html->link(__('View'), array('controller' => 'logins', 'action' => 'view', $login['id'])); ?>
+				<?php //echo $this->Html->link(__('Edit'), array('controller' => 'logins', 'action' => 'edit', $login['id'])); ?>
+				<?php //echo $this->Form->postLink(__('Delete'), array('controller' => 'logins', 'action' => 'delete', $login['id']), array(), __('Are you sure you want to delete # %s?', $login['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>
@@ -143,17 +148,17 @@
 </div>
 <div class="related">
 	<h3><?php echo __('Related Courses'); ?></h3>
-	<?php if (!empty($member['Course'])): ?>
+	<?php if (!empty($member['Course'])): //debug($member['Course']);?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
-		<th><?php echo __('Instructor Id'); ?></th>
+		<th><?php //echo __('Instructor Id'); ?></th>
 		<th><?php echo __('Name'); ?></th>
 		<th><?php echo __('Cost'); ?></th>
 	</tr>
 	<?php foreach ($member['Course'] as $course): ?>
 		<tr>
-			<td><?php echo $course['instructor_id']; ?></td>
-			<td><?php echo $course['name']; ?></td>
+			<td><?php //echo $course['instructor_id']; ?></td>
+			<td><?php echo $this->Html->link($course['name'],array('controller'=>'courses' ,'action'=>'view',$course['id'])); ?></td>
 			<td><?php echo $course['cost']; ?></td>
 		</tr>
 	<?php endforeach; ?>

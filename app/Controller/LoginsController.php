@@ -54,6 +54,38 @@ class LoginsController extends AppController {
 //debug($this->request->data);//exit();
 
 			$this->set('member',$member);
+			if($member) {
+				//look up last login
+				$lastLogin=$this->Login->find('first',array(
+					'conditions'=>array('Login.member_id'=>$member['Member']['id']),
+					'order'=>array('Login.time_in'=>'desc'),
+				));
+				$this->set("lastLogin",$lastLogin);
+			}//endif
+//			unset($this->request->data['Login']['scan']);
+			if(isset($this->request->data['Login']['confirm'])) {
+				//confirming scan
+				if($this->request->data['Login']['confirm']==$this->request->data['Login']['scan']) {
+					//confirms user
+					$this->request->data['Login']['member_id']=$member['Member']['id'];
+					if($lastLogin && $lastLogin['Login']['time_out']==null) {
+						//logging out
+						$this->request->data['Login']['time_out']=date("Y-m-d H:i:s");
+						$this->request->data['Login']['id']=$lastLogin['Login']['id'];
+					} else {
+						//logging in
+						$this->request->data['Login']['time_in']=date("Y-m-d H:i:s");
+					}//endif
+					if($this->Login->save($this->request->data)) {
+						//saved ok
+						$this->redirect(array('action'=>'add'));
+					} else {
+						//error
+					}//endif
+				} else {
+					//incorrect user
+				}//endif
+			}//endif
 /*
 			$this->Login->create();
 			if ($this->Login->save($this->request->data)) {
