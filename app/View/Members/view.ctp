@@ -134,7 +134,7 @@
 		<tr>
 			<td><?php echo $payment['created']; ?></td>
 			<td><?php echo $payment['amount']; ?></td>
-			<td><?php echo $payment['payment_type']; ?></td>
+			<td><?php echo $PAYMENT_TYPES[$payment['payment_type']]; ?></td>
 		</tr>
 	<?php endforeach; ?>
 	</table>
@@ -142,7 +142,7 @@
 
 	<div class="actions">
 		<ul>
-			<li><?php echo $this->Html->link(__('New Payment'), array('controller' => 'payments', 'action' => 'add')); ?> </li>
+			<li><?php echo $this->Html->link(__('New Payment'), array('controller' => 'payments', 'action' => 'add','member_id'=>$member['Member']['id'])); ?> </li>
 		</ul>
 	</div>
 </div>

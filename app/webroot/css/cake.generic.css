@@ -23,7 +23,7 @@
 
 /** General Style Info **/
 body {
-	background: #003d4c;
+	background: #f3f3f3;
 	color: #fff;
 	font-family:'lucida grande',verdana,helvetica,arial,sans-serif;
 	font-size:90%;
@@ -82,8 +82,8 @@ p {
 }
 #header h1 {
 	line-height:20px;
-	background: #003d4c url('../img/cake.icon.png') no-repeat left;
-	color: #fff;
+	/**background: #003d4c url('../img/espace logo.png') no-repeat left;
+	color: #fff;**/
 	padding: 0px 30px;
 }
 #header h1 a {
@@ -266,7 +266,7 @@ form {
 	width: 95%;
 }
 fieldset {
-	border: none;
+	border: 1px;
 	margin-bottom: 1em;
 	padding: 16px 10px;
 }

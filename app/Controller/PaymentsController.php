@@ -47,6 +47,16 @@ class PaymentsController extends AppController {
  * @return void
  */
 	public function add() {
+		//check for passed member_id
+		if(isset($this->passedArgs['member_id'])) {
+			//validate member_id
+			$member=$this->Payment->Member->find('first',array('conditions'=>array('Member.id'=>$this->passedArgs['member_id'])));
+			if($member) {
+				//passed member_id ok
+				$this->set('member',$member);
+				$this->request->data['Payment']['member_id']=$member['Member']['id'];
+			}//endif
+		}//endif
 		if ($this->request->is('post')) {
 			$this->Payment->create();
 			if ($this->Payment->save($this->request->data)) {
