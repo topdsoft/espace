@@ -89,6 +89,45 @@ class CoursesController extends AppController {
 	}
 
 /**
+ * signup method
+ * 
+ * 
+ * @throws NotFoundException
+ * @param string $id  (course id OPTIONAL)
+ * @param member_id passed arg
+ * @return void
+ */
+	public function signup($id=null) {
+		if($id) {
+			//get course
+			$course=$this->Course->read(null,$id);
+			if($course) $this->request->data['CoursesMember']['course_id']=$id;
+		} else $course=null;
+		if(isset($this->passedArgs['member_id'])) {
+			//get member
+			$member=$this->Course->Member->find('first',array('conditions'=>array('Member.id'=>$this->passedArgs['member_id'])));
+			if($member)$this->request->data['CoursesMember']['member_id']=$member['Member']['id'];
+// debug($course);debug($member);exit;
+		} else $member=null;
+		$this->set('course',$course);
+		$this->set('member',$member);
+		$this->set('courses',$this->Course->find('list'));
+		$this->set('members',$this->Course->Member->find('list'));
+		if ($this->request->is(array('post', 'put'))) {
+			//return from submit
+//debug($this->request->data);exit;
+			$this->Course->CoursesMember->create();
+			if ($this->Course->CoursesMember->save($this->request->data)) {
+				$this->Session->setFlash(__('Member is signed up.'));
+				return $this->redirect(array('controller'=>'payments','action' => 'add','member_id'=>$this->request->data['CoursesMember']['member_id']));
+			} else {
+				$this->Session->setFlash(__('Member could not be signed up. Please, try again.'));
+			}
+		}//endif
+		
+	}
+
+/**
  * delete method
  *
  * @throws NotFoundException

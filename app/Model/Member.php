@@ -10,6 +10,7 @@ App::uses('AppModel', 'Model');
 class Member extends AppModel {
 
 	public $displayField = 'username';
+	public $order ='last_name';
 
 /**
  * Validation rules
