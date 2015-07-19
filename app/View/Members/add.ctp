@@ -12,8 +12,8 @@
 		echo $this->Form->input('access_level');
 		echo $this->Form->input('barcode_hash');
 		echo $this->Form->input('company');
-		echo $this->Form->input('hrs_left');
-		echo $this->Form->input('hrs_left_monthly');
+		echo $this->Form->input('mins_left');
+		echo $this->Form->input('mins_left_monthly');
 		//echo $this->Form->input('waver');
 		//echo $this->Form->input('Course');
 	?>
@@ -33,3 +33,4 @@
 		<li><?php echo $this->Html->link(__('New Course'), array('controller' => 'courses', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
+<script type='text/javascript'>document.getElementById('MemberUsername').focus();</script>
