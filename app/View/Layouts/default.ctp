@@ -58,7 +58,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 			</p>
 		</div>
 		<div id="footer2">
-			Copyright &copy <?php echo date('Y').' '.$this->Html->link('Top Drawer Software LLC','http://www.topdsoft.com');?>
+			Copyright &copy <?php echo date('Y').' '.$this->Html->link('Espace Labs LLC','http://www.espacelabs.com');?>
 		</div>
 	</div>
 	<?php echo $this->element('sql_dump'); ?>

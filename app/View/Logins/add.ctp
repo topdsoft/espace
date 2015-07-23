@@ -17,7 +17,7 @@
 				//member's first ever login
 				echo "<p>Welcome to Espace</p>";
 			}//endif
-			echo "<p>You have <strong>".$member['Member']['hrs_left_monthly']."</strong> minutes left to use this month.</p>";
+			echo "<p>You have <strong>".$member['Member']['mins_left_monthly']."</strong> minutes left to use this month.</p>";
 			if($loggingIn) {
 				//logging In
 				echo "Scan your member card to confirm you're logging in:";

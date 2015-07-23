@@ -108,6 +108,9 @@ p {
 	clear: both;
 	padding: 6px 10px;
 }
+#footer2 {
+	color: #333;
+}
 #header a, #footer a {
 	color: #fff;
 }
