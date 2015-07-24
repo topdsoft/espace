@@ -38,7 +38,7 @@
 		</dd>
 		<dt><?php echo __('Access Level'); ?></dt>
 		<dd>
-			<?php echo h($member['Member']['access_level']); ?>
+			<?php echo $MEMBER_TYPES[$member['Member']['access_level']]; ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Barcode Hash'); ?></dt>
@@ -64,6 +64,11 @@
 		<dt><?php echo __('Waiver'); ?></dt>
 		<dd>
 			<?php echo h($member['Member']['waver']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Membership Agreement'); ?></dt>
+		<dd>
+			<?php echo h($member['Member']['membership_agreement']); ?>
 			&nbsp;
 		</dd>
 	</dl>

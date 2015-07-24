@@ -43,6 +43,7 @@ class AppController extends Controller {
 		2=>'Full Member',
 		3=>'Steward',
 		4=>'Student',
+		5=>'Instructor',
 	);
 
 	function beforeFilter() {

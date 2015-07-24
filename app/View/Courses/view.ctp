@@ -23,7 +23,7 @@
 		</dd>
 		<dt><?php echo __('Description'); ?></dt>
 		<dd>
-			<?php echo h($course['Course']['description']); ?>
+			<?php echo nl2br($course['Course']['description']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Cost'); ?></dt>
@@ -124,7 +124,11 @@
 
 	<div class="actions">
 		<ul>
+<<<<<<< HEAD
 			<li><?php echo $this->Html->link(__('Signup'), array('action' => 'signup', $course['Course']['id'])); ?> </li>
+=======
+			<li><?php echo $this->Html->link(__('Signup Member'), array('controller' => 'courses', 'action' => 'signup',$course['Course']['id'])); ?> </li>
+>>>>>>> fccaf701645557c8ab2bfc55b2f633b680e745a1
 		</ul>
 	</div>
 </div>
