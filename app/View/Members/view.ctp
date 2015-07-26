@@ -172,7 +172,7 @@
 
 	<div class="actions">
 		<ul>
-			<li><?php echo $this->Html->link(__('New Course'), array('controller' => 'courses', 'action' => 'add')); ?> </li>
+			<li><?php echo $this->Html->link(__('Course Signup'), array('controller' => 'courses', 'action' => 'signup', 'member_id' => $member['Member']['id'])); ?> </li>
 		</ul>
 	</div>
 </div>
