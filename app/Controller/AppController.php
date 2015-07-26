@@ -38,7 +38,7 @@ class AppController extends Controller {
 		4=>'Cash',
 		5=>'Check',
 	);
-	var $MEMBER_TYPES=array(
+	var $ACCESS_TYPES=array(
 		1=>'Admin',
 		2=>'Full Member',
 		3=>'Steward',
@@ -48,7 +48,7 @@ class AppController extends Controller {
 
 	function beforeFilter() {
 		$this->set('PAYMENT_TYPES', $this->PAYMENT_TYPES);
-		$this->set("MEMBER_TYPES", $this->MEMBER_TYPES);
+		$this->set("ACCESS_TYPES", $this->ACCESS_TYPES);
 	}
 
 }

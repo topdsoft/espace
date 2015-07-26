@@ -38,7 +38,7 @@
 		</dd>
 		<dt><?php echo __('Access Level'); ?></dt>
 		<dd>
-			<?php echo $MEMBER_TYPES[$member['Member']['access_level']]; ?>
+			<?php echo $ACCESS_TYPES[$member['Member']['access_level']]; ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Barcode Hash'); ?></dt>

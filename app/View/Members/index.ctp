@@ -27,7 +27,7 @@
 		<td><?php echo h($member['Member']['paid_until']); ?>&nbsp;</td>
 		<td><?php echo h($member['Member']['mins_left']); ?>&nbsp;</td>
 		<td><?php echo h($member['Member']['mins_left_monthly']); ?>&nbsp;</td>
-		<td><?php echo h($MEMBER_TYPES[$member['Member']['access_level']]); ?>&nbsp;</td>
+		<td><?php echo h($ACCESS_TYPES[$member['Member']['access_level']]); ?>&nbsp;</td>
 		<td><?php //echo h($member['Member']['company']); ?>&nbsp;</td>
 			<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $member['Member']['id'])); ?>

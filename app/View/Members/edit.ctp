@@ -10,7 +10,7 @@
 		echo $this->Form->input('first_name');
 		echo $this->Form->input('last_name');
 		echo $this->Form->input('paid_until');
-		echo $this->Form->input('access_level',array('options'=>$MEMBER_TYPES));
+		echo $this->Form->input('access_level',array('options'=>$ACCESS_TYPES));
 		echo $this->Form->input('barcode_hash');
 		echo $this->Form->input('company');
 		echo $this->Form->input('mins_left');
