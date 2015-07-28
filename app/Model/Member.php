@@ -31,6 +31,10 @@ class Member extends AppModel {
 				'rule' => array('isUnique'),
 				'message' => 'This username is taken',
 				),
+			'onlyAlpha' => array(
+				'rule' => '/^[a-z0-9]{3,}$/i',
+				'message' => 'The username must contain only numbers and letters with no spaces and be at least three characters long',
+			),
 		),
 		'email' => array(
 			'email' => array(

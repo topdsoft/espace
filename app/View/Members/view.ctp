@@ -78,19 +78,14 @@
 		</dd>
 	</dl>
 </div>
+<?php echo $this->element('menu'); ?>
 <div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
+	<h3><?php echo __('Member Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('Edit Member'), array('action' => 'edit', $member['Member']['id'])); ?> </li>
 		<li><?php echo $this->Form->postLink(__('Delete Member'), array('action' => 'delete', $member['Member']['id']), array(), __('Are you sure you want to delete # %s?', $member['Member']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Members'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Member'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Logins'), array('controller' => 'logins', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Login'), array('controller' => 'logins', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Payments'), array('controller' => 'payments', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Payment'), array('controller' => 'payments', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Courses'), array('controller' => 'courses', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Course'), array('controller' => 'courses', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Make Payment'), array('controller'=>'payments','action' => 'add','member_id'=> $member['Member']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Course Signup'), array('controller'=>'courses','action' => 'signup', 'member_id'=>$member['Member']['id'])); ?> </li>
 	</ul>
 </div>
 <div class="related">

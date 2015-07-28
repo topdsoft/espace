@@ -23,7 +23,7 @@ class MembersController extends AppController {
  */
 	public function index() {
 		$this->Member->recursive = 0;
-		$this->set('members', $this->Paginator->paginate());
+		$this->set('members', $this->Paginator->paginate('Member',array('Member.active')));
 	}
 
 /**
@@ -99,7 +99,10 @@ class MembersController extends AppController {
 			throw new NotFoundException(__('Invalid member'));
 		}
 		$this->request->allowMethod('post', 'delete');
-		if ($this->Member->delete()) {
+		if ($this->Member->save(array(
+			'id'=>$id,
+			'active'=>false
+		))) {
 			$this->Session->setFlash(__('The member has been deleted.'));
 		} else {
 			$this->Session->setFlash(__('The member could not be deleted. Please, try again.'));

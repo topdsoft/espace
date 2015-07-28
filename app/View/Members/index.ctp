@@ -34,7 +34,7 @@
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $member['Member']['id'])); ?>
 			<?php echo $this->Html->link(__('Payment'), array('controller'=>'payments' ,'action' => 'add', 'member_id'=>$member['Member']['id'])); ?>
 			<?php echo $this->Html->link(__('Class Signup'), array('controller'=>'courses','action' => 'signup', 'member_id'=>$member['Member']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $member['Member']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $member['Member']['id']))); ?>
+			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $member['Member']['id']), array('confirm' => __('Are you sure you want to delete member: %s?', $member['Member']['username']))); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
