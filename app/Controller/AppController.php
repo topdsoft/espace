@@ -45,10 +45,24 @@ class AppController extends Controller {
 		4=>'Student',
 		5=>'Instructor',
 	);
+	var $MEMBERSHIP_TYPES=array(
+		0=>"(none)",
+		1=>"Hourly",
+		2=>"Individual Annual",
+		3=>"Start-Up Annual",
+		4=>"Company Annual",
+		5=>"Individual 3-Month",
+		6=>"Start-Up 3-Month",
+		7=>"Company 3-Month",
+		8=>"Individual Monthly",
+		9=>"Start-Up Monthly",
+		10=>"Company Monthly",
+	);
 
 	function beforeFilter() {
 		$this->set('PAYMENT_TYPES', $this->PAYMENT_TYPES);
 		$this->set("ACCESS_TYPES", $this->ACCESS_TYPES);
+		$this->set("MEMBERSHIP_TYPES", $this->MEMBERSHIP_TYPES);
 	}
 
 }

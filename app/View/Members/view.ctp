@@ -41,6 +41,11 @@
 			<?php echo $ACCESS_TYPES[$member['Member']['access_level']]; ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Membership Type'); ?></dt>
+		<dd>
+			<?php echo $MEMBERSHIP_TYPES[$member['Member']['membership_type']]; ?>
+			&nbsp;
+		</dd>
 		<dt><?php echo __('Barcode Hash'); ?></dt>
 		<dd>
 			<?php echo h($member['Member']['barcode_hash']); ?>
