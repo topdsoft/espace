@@ -47,4 +47,8 @@
 		<li><?php echo $this->Html->link(__('New Member'), array('controller' => 'members', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
+<?php if(isset($member)):?>
+<script type='text/javascript'>document.getElementById('LoginConfirm').focus();</script>
+<?php else:?>
 <script type='text/javascript'>document.getElementById('LoginScan').focus();</script>
+<?php endif; ?>
