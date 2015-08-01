@@ -49,8 +49,9 @@ class MembersController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Member->create();
+			$this->Member->data['Member']['active']=true;
 			if ($this->Member->save($this->request->data)) {
-				$this->Session->setFlash(__('The member has been saved.'));
+				$this->Session->setFlash(__('Success, The member has been saved.'),'default',array('class'=>'success'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The member could not be saved. Please, try again.'));

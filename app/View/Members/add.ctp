@@ -11,15 +11,15 @@
 		echo $this->Form->input('paid_until');
 		echo $this->Form->input('access_level',array('options'=>$ACCESS_TYPES));
 		echo $this->Form->input('membership_type',array('options'=>$MEMBERSHIP_TYPES));
-		echo $this->Form->input('barcode_hash');
+		echo $this->Form->input('barcode_hash',array('label'=>'Barcode Number'));
 		echo $this->Form->input('company');
-		echo $this->Form->input('mins_left');
+		echo $this->Form->input('mins_left',array('label'=>'Mins Left (Hourly Member/Extra Minutes)'));
 		echo $this->Form->input('mins_left_monthly');
 		echo $this->Form->input('mailing_address');
 		echo $this->Form->input('emergency_contact_name');
 		echo $this->Form->input('emergency_contact_phone');
 		echo $this->Form->input('notes');
-		echo $this->Form->input('membership_agreement');
+		//echo $this->Form->input('membership_agreement');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

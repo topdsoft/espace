@@ -66,16 +66,6 @@
 			<?php echo h($member['Member']['mins_left_monthly']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Waiver'); ?></dt>
-		<dd>
-			<?php echo h($member['Member']['waver']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Membership Agreement'); ?></dt>
-		<dd>
-			<?php echo h($member['Member']['membership_agreement']); ?>
-			&nbsp;
-		</dd>
 	</dl>
 </div>
 <?php echo $this->element('menu'); ?>
