@@ -51,13 +51,13 @@ echo $this->element("menu");
 		if(selected_item == 1) $('#MemberMinsLeft').val(0);
 		if(selected_item == 2) $('#MemberMinsLeft').val(180);
 		if(selected_item == 3) $('#MemberMinsLeft').val(320);
-		if(selected_item == 4) $('#MemberMinsLeft').val(500);
+		if(selected_item == 4) $('#MemberMinsLeft').val(600);
 		if(selected_item == 5) $('#MemberMinsLeft').val(180);
 		if(selected_item == 6) $('#MemberMinsLeft').val(320);
-		if(selected_item == 7) $('#MemberMinsLeft').val(500);
+		if(selected_item == 7) $('#MemberMinsLeft').val(600);
 		if(selected_item == 8) $('#MemberMinsLeft').val(180);
 		if(selected_item == 9) $('#MemberMinsLeft').val(320);
-		if(selected_item == 10) $('#MemberMinsLeft').val(500);
+		if(selected_item == 10) $('#MemberMinsLeft').val(600);
 		if(selected_item == 0) $('#MemberMinsLeft').val(0);
 		if(selected_item == "other"){
 			$('#other').val("").removeClass('hidden');
