@@ -58,13 +58,14 @@ class CourseSessionsController extends AppController {
 				//course id is valid
 				$this->request->data['CourseSession']['course_id']=$this->passedArgs['course_id'];
 				$this->set('course',$course);
+// debug($course);exit;
 			}//endif
 		}//endif
 		if ($this->request->is('post')) {
 			$this->CourseSession->create();
 			if ($this->CourseSession->save($this->request->data)) {
 				$this->Session->setFlash(__('The course session has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				return $this->redirect(array('controller'=>'courses','action' => 'view',$this->request->data['CourseSession']['course_id']));
 			} else {
 				$this->Session->setFlash(__('The course session could not be saved. Please, try again.'));
 			}

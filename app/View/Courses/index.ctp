@@ -3,8 +3,8 @@
 	<table cellpadding="0" cellspacing="0">
 	<thead>
 	<tr>
-			<th><?php echo $this->Paginator->sort('instructor_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
+			<th><?php echo $this->Paginator->sort('instructor_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('description'); ?></th>
 			<th><?php echo $this->Paginator->sort('cost'); ?></th>
 			<th><?php echo $this->Paginator->sort('max_students'); ?></th>
@@ -15,10 +15,10 @@
 	<tbody>
 	<?php foreach ($courses as $course): ?>
 	<tr>
+		<td><?php echo h($course['Course']['name']); ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($course['Instructor']['username'], array('controller' => 'members', 'action' => 'view', $course['Instructor']['id'])); ?>
 		</td>
-		<td><?php echo h($course['Course']['name']); ?>&nbsp;</td>
 		<td><?php echo h($course['Course']['description']); ?>&nbsp;</td>
 		<td><?php echo h($course['Course']['cost']); ?>&nbsp;</td>
 		<td><?php echo h($course['Course']['max_students']); ?>&nbsp;</td>
@@ -47,13 +47,4 @@
 	?>
 	</div>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('New Course'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Members'), array('controller' => 'members', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Instructor'), array('controller' => 'members', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Sessions'), array('controller' => 'sessions', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Session'), array('controller' => 'sessions', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
+<?php echo $this->element('menu'); ?>

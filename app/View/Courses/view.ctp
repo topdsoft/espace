@@ -58,14 +58,12 @@
 		</dd>
 	</dl>
 </div>
+<?php echo $this->element('menu'); ?>
 <div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
+	<h3><?php echo __('Course Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('Edit Course'), array('action' => 'edit', $course['Course']['id'])); ?> </li>
 		<li><?php echo $this->Form->postLink(__('Delete Course'), array('action' => 'delete', $course['Course']['id']), array(), __('Are you sure you want to delete # %s?', $course['Course']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Courses'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Course'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Members'), array('controller' => 'members', 'action' => 'index')); ?> </li>
 	</ul>
 </div>
 <div class="related">
@@ -81,8 +79,8 @@
 			<td><?php echo $session['time']; ?></td>
 			<td class="actions">
 				<?php //echo $this->Html->link(__('View'), array('controller' => 'sessions', 'action' => 'view', $session['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'sessions', 'action' => 'edit', $session['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'sessions', 'action' => 'delete', $session['id']), array(), __('Are you sure you want to delete # %s?', $session['id'])); ?>
+				<?php echo $this->Html->link(__('Edit'), array('controller' => 'courseSessions', 'action' => 'edit', $session['id'])); ?>
+				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'courseSessions', 'action' => 'delete', $session['id']), array(), __('Are you sure you want to delete # %s?', $session['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>
@@ -124,11 +122,7 @@
 
 	<div class="actions">
 		<ul>
-<<<<<<< HEAD
-			<li><?php echo $this->Html->link(__('Signup'), array('action' => 'signup', $course['Course']['id'])); ?> </li>
-=======
 			<li><?php echo $this->Html->link(__('Signup Member'), array('controller' => 'courses', 'action' => 'signup',$course['Course']['id'])); ?> </li>
->>>>>>> fccaf701645557c8ab2bfc55b2f633b680e745a1
 		</ul>
 	</div>
 </div>
