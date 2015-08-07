@@ -15,6 +15,10 @@ class Course extends AppModel {
  * @var string
  */
 	public $displayField = 'name';
+	public $virtualFields = array(
+		'signedup'=>'select count(*) from courses_members where courses_members.course_id=Course.id',
+		'course_sessions'=>'select count(*) from courseSessions where courseSessions.course_id=Course.id',
+	);
 
 /**
  * Validation rules
@@ -35,7 +39,7 @@ class Course extends AppModel {
 		'name' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
-				//'message' => 'Your custom message here',
+				'message' => 'Enter course name here',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule

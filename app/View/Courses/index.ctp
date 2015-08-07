@@ -5,8 +5,9 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
 			<th><?php echo $this->Paginator->sort('instructor_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('description'); ?></th>
+			<th><?php echo $this->Paginator->sort('course_sessions'); ?></th>
 			<th><?php echo $this->Paginator->sort('cost'); ?></th>
+			<th><?php echo $this->Paginator->sort('signedup'); ?></th>
 			<th><?php echo $this->Paginator->sort('max_students'); ?></th>
 			<th><?php echo $this->Paginator->sort('min_students'); ?></th>
 			<th class="actions"></th>
@@ -19,8 +20,9 @@
 		<td>
 			<?php echo $this->Html->link($course['Instructor']['username'], array('controller' => 'members', 'action' => 'view', $course['Instructor']['id'])); ?>
 		</td>
-		<td><?php echo h($course['Course']['description']); ?>&nbsp;</td>
+		<td><?php echo h($course['Course']['course_sessions']); ?>&nbsp;</td>
 		<td><?php echo h($course['Course']['cost']); ?>&nbsp;</td>
+		<td><?php echo h($course['Course']['signedup']); ?>&nbsp;</td>
 		<td><?php echo h($course['Course']['max_students']); ?>&nbsp;</td>
 		<td><?php echo h($course['Course']['min_students']); ?>&nbsp;</td>
 		<td class="actions">
