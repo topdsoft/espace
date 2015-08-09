@@ -58,11 +58,25 @@ class AppController extends Controller {
 		9=>"Start-Up Monthly",
 		10=>"Company Monthly",
 	);
+	var $MEMBERSHIP_MINUTES=array(
+		0=>0,
+		1=>0,
+		2=>180,
+		3=>320,
+		4=>600,
+		5=>180,
+		6=>320,
+		7=>600,
+		8=>180,
+		9=>320,
+		10=>600,
+	);
 
 	function beforeFilter() {
 		$this->set('PAYMENT_TYPES', $this->PAYMENT_TYPES);
 		$this->set("ACCESS_TYPES", $this->ACCESS_TYPES);
 		$this->set("MEMBERSHIP_TYPES", $this->MEMBERSHIP_TYPES);
+		$this->set("MEMBERSHIP_MINUTES", $this->MEMBERSHIP_MINUTES);
 	}
 
 }

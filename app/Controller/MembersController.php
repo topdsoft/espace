@@ -49,7 +49,7 @@ class MembersController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Member->create();
-			$this->Member->data['Member']['active']=true;
+			$this->request->data['Member']['active']=true;
 			if ($this->Member->save($this->request->data)) {
 				$this->Session->setFlash(__('Success, The member has been saved.'),'default',array('class'=>'success'));
 				return $this->redirect(array('action' => 'index'));
@@ -57,6 +57,9 @@ class MembersController extends AppController {
 				$this->Session->setFlash(__('The member could not be saved. Please, try again.'));
 			}
 		}
+		$this->request->data['Member']['access_level']=4;
+		$this->request->data['Member']['mins_left']=0;
+		$this->request->data['Member']['mins_left_monthly']=0;
 		$courses = $this->Member->Course->find('list');
 		$this->set(compact('courses'));
 	}

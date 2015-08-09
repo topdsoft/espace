@@ -50,7 +50,7 @@ class CoursesController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Course->create();
 			if ($this->Course->save($this->request->data)) {
-				$this->Session->setFlash(__('The course has been saved.'));
+				$this->Session->setFlash(__('The course has been saved.'),'default',array('class'=>'success'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The course could not be saved. Please, try again.'));
@@ -74,7 +74,7 @@ class CoursesController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Course->save($this->request->data)) {
-				$this->Session->setFlash(__('The course has been saved.'));
+				$this->Session->setFlash(__('The course has been saved.'),'default',array('class'=>'success'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The course could not be saved. Please, try again.'));
@@ -115,14 +115,23 @@ class CoursesController extends AppController {
 		$this->set('members',$this->Course->Member->find('list'));
 		if ($this->request->is(array('post', 'put'))) {
 			//return from submit
-//debug($this->request->data);exit;
-			$this->Course->CoursesMember->create();
-			if ($this->Course->CoursesMember->save($this->request->data)) {
-				$this->Session->setFlash(__('Member is signed up.'));
-				return $this->redirect(array('controller'=>'payments','action' => 'add','member_id'=>$this->request->data['CoursesMember']['member_id']));
+			if($this->Course->CoursesMember->find('first',array('conditions'=>array(
+				'member_id'=>$this->request->data['CoursesMember']['member_id'],
+				'course_id'=>$this->request->data['CoursesMember']['course_id']
+			)))) {
+				//member is allready signed up for this class
+				$this->Session->setFlash(__('Member is allready signed up for this course.'));
 			} else {
-				$this->Session->setFlash(__('Member could not be signed up. Please, try again.'));
-			}
+				//member is not yet signed up for this course
+				$this->Course->CoursesMember->create();
+				if ($this->Course->CoursesMember->save($this->request->data)) {
+					$this->Session->setFlash(__('Member is signed up.'),'default',array('class'=>'success'));
+					return $this->redirect(array('controller'=>'payments','action' => 'add','member_id'=>$this->request->data['CoursesMember']['member_id']));
+				} else {
+					$this->Session->setFlash(__('Member could not be signed up. Please, try again.'));
+				}//endif
+			}//endif
+// debug($this->request->data);exit;
 		}//endif
 		
 	}

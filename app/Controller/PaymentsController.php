@@ -60,8 +60,8 @@ class PaymentsController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Payment->create();
 			if ($this->Payment->save($this->request->data)) {
-				$this->Session->setFlash(__('The payment has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				$this->Session->setFlash(__('The payment has been saved.'),'default',array('class'=>'success'));
+				return $this->redirect(array('action' => 'view',$this->Payment->getInsertId()));
 			} else {
 				$this->Session->setFlash(__('The payment could not be saved. Please, try again.'));
 			}

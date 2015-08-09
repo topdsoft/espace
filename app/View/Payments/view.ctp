@@ -1,41 +1,37 @@
 <div class="payments view">
-<h2><?php echo __('Payment'); ?></h2>
+<h2><?php //echo __('Payment'); ?></h2>
 	<dl>
-		<dt><?php echo __('Id'); ?></dt>
+		<dt><?php echo __('Invoice Id'); ?></dt>
 		<dd>
 			<?php echo h($payment['Payment']['id']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Created'); ?></dt>
+		<dt><?php echo __('Payment Date'); ?></dt>
 		<dd>
 			<?php echo h($payment['Payment']['created']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Member'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($payment['Member']['id'], array('controller' => 'members', 'action' => 'view', $payment['Member']['id'])); ?>
+			<?php echo $this->Html->link($payment['Member']['last_name'].', '.$payment['Member']['first_name']
+			, array('controller' => 'members', 'action' => 'view', $payment['Member']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Amount'); ?></dt>
 		<dd>
-			<?php echo h($payment['Payment']['amount']); ?>
+			<?php echo '$'. h($payment['Payment']['amount']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Payment Type'); ?></dt>
+		<dt><?php echo __('Payment Method'); ?></dt>
 		<dd>
-			<?php echo h($payment['Payment']['payment_type']); ?>
+			<?php echo h($PAYMENT_TYPES[$payment['Payment']['payment_type']]); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Notes'); ?></dt>
+		<dd>
+			<?php echo nl2br($payment['Payment']['notes']); ?>
 			&nbsp;
 		</dd>
 	</dl>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Payment'), array('action' => 'edit', $payment['Payment']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Payment'), array('action' => 'delete', $payment['Payment']['id']), array(), __('Are you sure you want to delete # %s?', $payment['Payment']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Payments'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Payment'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Members'), array('controller' => 'members', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Member'), array('controller' => 'members', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
+<?php echo $this->element('menu'); ?>

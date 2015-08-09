@@ -6,11 +6,11 @@
 			<th><?php echo $this->Paginator->sort('first_name'); ?></th>
 			<th><?php echo $this->Paginator->sort('last_name'); ?></th>
 			<th><?php echo $this->Paginator->sort('username'); ?></th>
-			<th><?php echo $this->Paginator->sort('email'); ?></th>
+			<th><?php //echo $this->Paginator->sort('email'); ?></th>
 			<th><?php //echo $this->Paginator->sort('phone'); ?></th>
-			<th><?php echo $this->Paginator->sort('paid_until'); ?></th>
-			<th><?php echo $this->Paginator->sort('mins_left'); ?></th>
-			<th><?php echo $this->Paginator->sort('mins_left_monthly'); ?></th>
+			<th><?php //echo $this->Paginator->sort('paid_until'); ?></th>
+			<th><?php //echo $this->Paginator->sort('mins_left'); ?></th>
+			<th><?php //echo $this->Paginator->sort('mins_left_monthly'); ?></th>
 			<th><?php echo $this->Paginator->sort('access_level'); ?></th>
 			<th><?php //echo $this->Paginator->sort('company'); ?></th>
 			<th class="actions"></th>
@@ -22,11 +22,11 @@
 		<td><?php echo h($member['Member']['first_name']); ?>&nbsp;</td>
 		<td><?php echo h($member['Member']['last_name']); ?>&nbsp;</td>
 		<td><?php echo h($member['Member']['username']); ?>&nbsp;</td>
-		<td><?php echo h($member['Member']['email']); ?>&nbsp;</td>
+		<td><?php //echo h($member['Member']['email']); ?>&nbsp;</td>
 		<td><?php //echo h($member['Member']['phone']); ?>&nbsp;</td>
-		<td><?php echo h($member['Member']['paid_until']); ?>&nbsp;</td>
-		<td><?php echo h($member['Member']['mins_left']); ?>&nbsp;</td>
-		<td><?php echo h($member['Member']['mins_left_monthly']); ?>&nbsp;</td>
+		<td><?php //echo h($member['Member']['paid_until']); ?>&nbsp;</td>
+		<td><?php //echo h($member['Member']['mins_left']); ?>&nbsp;</td>
+		<td><?php //echo h($member['Member']['mins_left_monthly']); ?>&nbsp;</td>
 		<td><?php echo h($ACCESS_TYPES[$member['Member']['access_level']]); ?>&nbsp;</td>
 		<td><?php //echo h($member['Member']['company']); ?>&nbsp;</td>
 			<td class="actions">

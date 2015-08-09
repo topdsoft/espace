@@ -22,7 +22,7 @@
 		<td><?php echo h($payment['Payment']['amount']); ?>&nbsp;</td>
 		<td><?php echo h($PAYMENT_TYPES[$payment['Payment']['payment_type']]); ?>&nbsp;</td>
 		<td class="actions">
-			<?php //echo $this->Html->link(__('View'), array('action' => 'view', $payment['Payment']['id'])); ?>
+			<?php echo $this->Html->link(__('View'), array('action' => 'view', $payment['Payment']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
@@ -42,11 +42,11 @@
 	?>
 	</div>
 </div>
+
+<?php echo $this->element('menu'); ?>
 <div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
+	<h3><?php echo __('Payment Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('New Payment'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Members'), array('controller' => 'members', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Member'), array('controller' => 'members', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Payment'), array('action' => 'add')); ?> </li>
 	</ul>
 </div>

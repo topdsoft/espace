@@ -48,17 +48,23 @@ echo $this->element("menu");
 		var selected_item = $(this).val()
 //alert(selected_item);
 		$('#MemberMinsLeft').val(0);
-		if(selected_item == 1) $('#MemberMinsLeftMonthly').val(0);
-		if(selected_item == 2) $('#MemberMinsLeftMonthly').val(180);
-		if(selected_item == 3) $('#MemberMinsLeftMonthly').val(320);
-		if(selected_item == 4) $('#MemberMinsLeftMonthly').val(600);
-		if(selected_item == 5) $('#MemberMinsLeftMonthly').val(180);
-		if(selected_item == 6) $('#MemberMinsLeftMonthly').val(320);
-		if(selected_item == 7) $('#MemberMinsLeftMonthly').val(600);
-		if(selected_item == 8) $('#MemberMinsLeftMonthly').val(180);
-		if(selected_item == 9) $('#MemberMinsLeftMonthly').val(320);
-		if(selected_item == 10) $('#MemberMinsLeftMonthly').val(600);
-		if(selected_item == 0) $('#MemberMinsLeftMonthly').val(0);
+<?php
+	foreach($MEMBERSHIP_MINUTES as $i => $mm) {
+		//loop for all membership types and add a line that will modify memberMinsLeftMonthly when MemberMembershipType changes
+		echo "if(selected_item == $i) $('#MemberMinsLeftMonthly').val($mm);";
+	}//end foreach
+?>
+// 		if(selected_item == 1) $('#MemberMinsLeftMonthly').val(0);
+// 		if(selected_item == 2) $('#MemberMinsLeftMonthly').val(180);
+// 		if(selected_item == 3) $('#MemberMinsLeftMonthly').val(320);
+// 		if(selected_item == 4) $('#MemberMinsLeftMonthly').val(600);
+// 		if(selected_item == 5) $('#MemberMinsLeftMonthly').val(180);
+// 		if(selected_item == 6) $('#MemberMinsLeftMonthly').val(320);
+// 		if(selected_item == 7) $('#MemberMinsLeftMonthly').val(600);
+// 		if(selected_item == 8) $('#MemberMinsLeftMonthly').val(180);
+// 		if(selected_item == 9) $('#MemberMinsLeftMonthly').val(320);
+// 		if(selected_item == 10) $('#MemberMinsLeftMonthly').val(600);
+// 		if(selected_item == 0) $('#MemberMinsLeftMonthly').val(0);
 		if(selected_item > 1 ) $('#MemberMinsLeft').val(0);
 	});
 </script>
