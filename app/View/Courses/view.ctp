@@ -56,6 +56,36 @@
 			<?php echo h($course['Course']['session_duration']).' hrs.'; ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Students Signed Up'); ?></dt>
+		<dd>
+			<?php echo h($course['Course']['signedup']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Total Hours'); ?></dt>
+		<dd>
+			<?php 
+			$totalHours=$course['Course']['session_duration']*$course['Course']['course_sessions'];
+			echo $totalHours.' hrs.'; ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Total Income'); ?></dt>
+		<dd>
+			<?php echo '$'.$course['Course']['signedup']*$course['Course']['cost']; ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Instructor Income'); ?></dt>
+		<dd>
+			<?php 
+			$instructorIncome=$course['Course']['signedup']*$course['Course']['cost']/2;
+			echo '$'.$instructorIncome; ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Income / Hour'); ?></dt>
+		<dd>
+			<?php 
+			echo '$'.$instructorIncome/$totalHours; ?>
+			&nbsp;
+		</dd>
 	</dl>
 </div>
 <?php echo $this->element('menu'); ?>
@@ -76,7 +106,9 @@
 	</tr>
 	<?php foreach ($course['CourseSession'] as $session): ?>
 		<tr>
-			<td><?php echo $session['time']; ?></td>
+			<td><?php 
+				$new_time = date("Y-m-d H:i:s", strtotime('+'.$course['Course']['session_duration'].' hours', strtotime($session['time'])));
+			echo $this->Time->format($session['time'],'%a %b %e, %Y %l:%M %P').' - '.$this->Time->format($new_time,'%l:%M %P'); ?></td>
 			<td class="actions">
 				<?php //echo $this->Html->link(__('View'), array('controller' => 'sessions', 'action' => 'view', $session['id'])); ?>
 				<?php echo $this->Html->link(__('Edit'), array('controller' => 'courseSessions', 'action' => 'edit', $session['id'])); ?>
