@@ -9,6 +9,7 @@
 /dist
 /tags
 *.mo
+app/webroot/files/backups
 
 # IDE and editor specific files #
 #################################

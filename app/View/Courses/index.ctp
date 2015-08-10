@@ -29,7 +29,7 @@
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $course['Course']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $course['Course']['id'])); ?>
 			<?php echo $this->Html->link(__('Signup'), array('action' => 'signup', $course['Course']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $course['Course']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $course['Course']['id']))); ?>
+			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $course['Course']['id']), array('confirm' => __('Are you sure you want to delete course: %s?', $course['Course']['name']))); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
