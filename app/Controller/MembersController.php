@@ -57,11 +57,11 @@ class MembersController extends AppController {
 				$this->Session->setFlash(__('The member could not be saved. Please, try again.'));
 			}
 		}
-		$this->request->data['Member']['access_level']=4;
+		$this->request->data['Member']['access_level']=4;//default to student
 		$this->request->data['Member']['mins_left']=0;
 		$this->request->data['Member']['mins_left_monthly']=0;
-		$courses = $this->Member->Course->find('list');
-		$this->set(compact('courses'));
+// 		$courses = $this->Member->Course->find('list');
+// 		$this->set(compact('courses'));
 	}
 
 /**
@@ -77,7 +77,7 @@ class MembersController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Member->save($this->request->data)) {
-				$this->Session->setFlash(__('The member has been saved.'));
+				$this->Session->setFlash(__('The member has been saved.'),'default',array('class'=>'success'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The member could not be saved. Please, try again.'));
@@ -113,4 +113,16 @@ class MembersController extends AppController {
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
+	
+/**
+ * popup method
+ * 
+ * @param inputId id of member option box
+ * @return sets value of inputId
+ */
+
+	public function popup() {
+		
+	}
+	
 }

@@ -40,11 +40,10 @@
 	?>
 	</div>
 </div>
+<?php echo $this->element('menu'); ?>
 <div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
+	<h3><?php echo __('Login/Out Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('New Login'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Members'), array('controller' => 'members', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Member'), array('controller' => 'members', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

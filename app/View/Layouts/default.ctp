@@ -39,7 +39,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 <body>
 	<div id="container">
 		<div id="header">
-			<h1><?php echo $this->Html->image('espace logo.png') ?></h1>
+			<h1><?php echo $this->Html->image('logo2.png') ?></h1>
 		</div>
 		<div id="content">
 
