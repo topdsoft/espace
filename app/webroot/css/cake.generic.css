@@ -172,7 +172,7 @@ table tr td {
 table tr:nth-child(even) {
 	background: #f9f9f9;
 }
-table tr:not(:first-child):hover {
+table tbody tr:hover {
 	background: yellow;
 }
 td.actions {

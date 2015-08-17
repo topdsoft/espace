@@ -112,7 +112,7 @@ class CoursesController extends AppController {
 		$this->set('course',$course);
 		$this->set('member',$member);
 		$this->set('courses',$this->Course->find('list'));
-		$this->set('members',$this->Course->Member->find('list'));
+		$this->set('members',$this->Course->Member->find('list',array('conditions'=>array('active'))));
 		if ($this->request->is(array('post', 'put'))) {
 			//return from submit
 			if($this->Course->CoursesMember->find('first',array('conditions'=>array(
