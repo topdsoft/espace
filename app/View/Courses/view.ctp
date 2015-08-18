@@ -100,10 +100,13 @@
 	<h3><?php echo __('Course Sessions'); ?></h3>
 	<?php if (!empty($course['CourseSession'])): ?>
 	<table cellpadding = "0" cellspacing = "0">
+	<thead>
 	<tr>
 		<th><?php echo __('Time'); ?></th>
 		<th></th>
 	</tr>
+	</thead>
+	<tbody>
 	<?php foreach ($course['CourseSession'] as $session): ?>
 		<tr>
 			<td><?php 
@@ -116,6 +119,7 @@
 			</td>
 		</tr>
 	<?php endforeach; ?>
+	</tbody>
 	</table>
 <?php endif; ?>
 
@@ -129,6 +133,7 @@
 	<h3><?php echo __('Enrolled Students'); ?></h3>
 	<?php if (!empty($course['Member'])): ?>
 	<table cellpadding = "0" cellspacing = "0">
+	<thead>
 	<tr>
 		<th><?php echo __('Username'); ?></th>
 		<th><?php echo __('Email'); ?></th>
@@ -137,6 +142,8 @@
 		<th><?php echo __('Last Name'); ?></th>
 		<th></th>
 	</tr>
+	</thead>
+	<tbody>
 	<?php foreach ($course['Member'] as $member): ?>
 		<tr>
 			<td><?php echo $member['username']; ?></td>
@@ -149,6 +156,7 @@
 			</td>
 		</tr>
 	<?php endforeach; ?>
+	</tbody>
 	</table>
 <?php endif; ?>
 

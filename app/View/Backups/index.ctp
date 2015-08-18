@@ -1,12 +1,15 @@
 <div class="backups index">
 	<h2><?php echo __('Backups'); ?></h2>
 	<table cellpadding="0" cellspacing="0">
+	<thead>
 	<tr>
 			<th><?php echo $this->Paginator->sort('created'); ?></th>
 			<th><?php //echo $this->Paginator->sort('created_id','By'); ?></th>
 			<th><?php echo $this->Paginator->sort('since'); ?></th>
 			<th><?php echo $this->Paginator->sort('filename'); ?></th>
 	</tr>
+	</thead>
+	<tbody>
 	<?php
 	foreach ($backups as $backup): ?>
 	<tr>
@@ -17,6 +20,7 @@
 			>'.$backup['Backup']['filename'].'</a>';?>&nbsp;</td> 
 	</tr>
 <?php endforeach; ?>
+	</tbody>
 	</table>
 	<p>
 	<?php
