@@ -15,6 +15,11 @@ class MembersController extends AppController {
  * @var array
  */
 	public $components = array('Paginator', 'Session');
+	
+	public function beforeFilter() {
+		$this->Auth->allow('editpw');
+		parent::beforeFilter();
+	}
 
 /**
  * index method
@@ -65,6 +70,31 @@ class MembersController extends AppController {
 	}
 
 /**
+ * login method
+ */
+	public function login() {
+		if ($this->request->is('post')) {
+			if ($this->Auth->login()) {
+				return $this->redirect($this->Auth->redirectUrl());
+			}
+			$this->Session->setFlash(
+				__('Username or password is incorrect'),
+				'default',
+				array(),
+				'auth'
+			);
+		}
+		
+	}
+
+/**
+ * logout method
+ */
+	public function logout() {
+		return $this->redirect($this->Auth->logout());
+	}
+
+/**
  * edit method
  *
  * @throws NotFoundException
@@ -81,6 +111,32 @@ class MembersController extends AppController {
 				return $this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The member could not be saved. Please, try again.'));
+			}
+		} else {
+			$options = array('conditions' => array('Member.' . $this->Member->primaryKey => $id));
+			$this->request->data = $this->Member->find('first', $options);
+		}
+		$courses = $this->Member->Course->find('list');
+		$this->set(compact('courses'));
+	}
+
+/**
+ * editpw method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function editpw($id = null) {
+		if (!$this->Member->exists($id)) {
+			throw new NotFoundException(__('Invalid member'));
+		}
+		if ($this->request->is(array('post', 'put'))) {
+			if ($this->Member->save($this->request->data)) {
+				$this->Session->setFlash(__('Your Password has been saved.'),'default',array('class'=>'success'));
+				return $this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('Your password could not be saved. Please, try again.'));
 			}
 		} else {
 			$options = array('conditions' => array('Member.' . $this->Member->primaryKey => $id));

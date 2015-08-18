@@ -41,6 +41,16 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 		<div id="header">
 			<h1><?php echo $this->Html->image('logo2.png') ?></h1>
 		</div>
+		<div id="loginblock">
+			<?php
+// debug($this->Session->read('Auth'));
+				if($this->Session->read('Auth.User')) {
+					//a member is logged in
+					echo 'Member= '.$this->Session->read('Auth.User.username').'<br>';
+					echo $this->Html->link('Logout', array('controller'=>'members','action'=>'logout')).'<br>';
+				}//endif
+			?>
+		</div>
 		<div id="content">
 
 			<?php echo $this->Session->flash(); ?>

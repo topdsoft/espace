@@ -24,7 +24,7 @@
 /** General Style Info **/
 body {
 	background: #f3f3f3;
-	color: #fff;
+/**	color: #fff;**/
 	font-family:'lucida grande',verdana,helvetica,arial,sans-serif;
 	font-size:90%;
 	margin: 0;
@@ -75,6 +75,17 @@ p {
 /** Layout **/
 #container {
 	text-align: left;
+}
+#loginblock {
+/*	position: absolute;  */
+/*	left: 0;*/
+	float: right;
+/*	top: 0;*/
+/*	width: 250px;*/
+	display: inline-block;
+	margin-top:10px;
+	margin-right:10px;
+/*	border:1px dashed #333;*/
 }
 
 #header{

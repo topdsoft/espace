@@ -71,6 +71,33 @@ class AppController extends Controller {
 		9=>320,
 		10=>600,
 	);
+	
+    public $components = array(
+        'Session',
+        'Auth' => array(
+			'loginAction' => array(
+				'controller' => 'members',
+				'action' => 'login',
+//				'plugin' => 'users'
+			),
+			'authError'=>'You must log in to view this screen',
+            'loginRedirect' => array(
+                'controller' => 'posts',
+                'action' => 'index'
+            ),
+            'logoutRedirect' => array(
+                'controller' => 'pages',
+                'action' => 'display',
+                'home'
+            ),
+            'authenticate' => array(
+                'Form' => array(
+					'passwordHasher' => 'Blowfish',
+					'userModel'=>'Member'
+                )
+            )
+        )
+    );
 
 	function beforeFilter() {
 		$this->set('PAYMENT_TYPES', $this->PAYMENT_TYPES);

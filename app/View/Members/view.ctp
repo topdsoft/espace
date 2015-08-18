@@ -76,6 +76,7 @@
 		<li><?php echo $this->Form->postLink(__('Delete Member'), array('action' => 'delete', $member['Member']['id']), array(), __('Are you sure you want to delete # %s?', $member['Member']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(__('Make Payment'), array('controller'=>'payments','action' => 'add','member_id'=> $member['Member']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(__('Course Signup'), array('controller'=>'courses','action' => 'signup', 'member_id'=>$member['Member']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Edit Password'), array('controller'=>'members','action' => 'editpw', $member['Member']['id'])); ?> </li>
 	</ul>
 </div>
 <div class="related">
