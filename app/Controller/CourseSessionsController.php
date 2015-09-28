@@ -69,7 +69,14 @@ class CourseSessionsController extends AppController {
 			} else {
 				$this->Session->setFlash(__('The course session could not be saved. Please, try again.'));
 			}
-		}
+		} else {
+			//default
+			if(isset($this->passedArgs['course_id'])) {
+				//insure course_id has been passed
+				$s = $this->CourseSession->find('first',array('order'=>'id desc','conditions'=>array('course_id'=>$this->passedArgs['course_id'])));
+				if($s) $this->request->data['CourseSession']['time']=$s['CourseSession']['time'];
+			}//endif
+		}//endif 
 		$courses = $this->CourseSession->Course->find('list');
 		$this->set(compact('courses'));
 	}
