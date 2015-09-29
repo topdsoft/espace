@@ -37,6 +37,7 @@ class AppController extends Controller {
 		3=>'PayPal Reacuring',
 		4=>'Cash',
 		5=>'Check',
+		6=>'Eventbrite',
 	);
 	var $ACCESS_TYPES=array(
 		1=>'Admin',
