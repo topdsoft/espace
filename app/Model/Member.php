@@ -10,8 +10,11 @@ App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
  */
 class Member extends AppModel {
 
-	public $displayField = 'username';
 	public $order ='last_name';
+	public $virtualFields = array(
+		'full_name' => "CONCAT(last_name, ',', first_name)"
+	);
+	public $displayField = 'full_name';
 
 /**
  * Validation rules
