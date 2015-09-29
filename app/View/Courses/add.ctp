@@ -4,7 +4,7 @@
 		<legend><?php echo __('Add Course'); ?></legend>
 	<?php
 		echo $this->Form->input('instructor_id');
-		echo $this->Form->input('name');
+		echo $this->Form->input('name',array('label'=>'Course Name'));
 		echo $this->Form->input('description');
 		echo $this->Form->input('cost');
 		echo $this->Form->input('max_students');
