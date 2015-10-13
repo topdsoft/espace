@@ -95,6 +95,7 @@
 		<li><?php echo $this->Html->link(__('New Session Date-Time'), array('controller' => 'courseSessions', 'action' => 'add','course_id'=>$course['Course']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(__('Edit Course'), array('action' => 'edit', $course['Course']['id'])); ?> </li>
 		<li><?php echo $this->Form->postLink(__('Delete Course'), array('action' => 'delete', $course['Course']['id']), array(), __('Are you sure you want to delete # %s?', $course['Course']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Upcoming Courses'), array('action' => 'upcoming')); ?> </li>
 	</ul>
 </div>
 <div class="related">

@@ -27,6 +27,16 @@ class CoursesController extends AppController {
 	}
 
 /**
+ * upcomming method
+ *
+ * @return void
+ */
+	public function upcoming() {
+		$this->Course->recursive = 1;
+		$this->set('courses', $this->Paginator->paginate());
+	}
+
+/**
  * view method
  *
  * @throws NotFoundException

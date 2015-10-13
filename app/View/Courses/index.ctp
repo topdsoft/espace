@@ -18,7 +18,7 @@
 	<tr>
 		<td><?php echo h($course['Course']['name']); ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($course['Instructor']['username'], array('controller' => 'members', 'action' => 'view', $course['Instructor']['id'])); ?>
+			<?php echo $this->Html->link($course['Instructor']['full_name'], array('controller' => 'members', 'action' => 'view', $course['Instructor']['id'])); ?>
 		</td>
 		<td><?php echo h($course['Course']['course_sessions']); ?>&nbsp;</td>
 		<td><?php echo h($course['Course']['cost']); ?>&nbsp;</td>
@@ -50,3 +50,9 @@
 	</div>
 </div>
 <?php echo $this->element('menu'); ?>
+<div class="actions">
+	<h3><?php echo __('Course Actions'); ?></h3>
+	<ul>
+		<li><?php echo $this->Html->link(__('Upcoming Courses'), array('action' => 'upcoming')); ?> </li>
+	</ul>
+</div>
