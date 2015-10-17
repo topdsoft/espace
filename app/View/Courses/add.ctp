@@ -9,6 +9,7 @@
 		echo $this->Form->input('cost');
 		echo $this->Form->input('max_students');
 		echo $this->Form->input('min_students');
+		echo $this->Form->input('website');
 		echo $this->Form->input('textbook');
 		echo $this->Form->input('materials');
 		echo $this->Form->input('session_duration',array('label'=>'Session Length in Hrs'));

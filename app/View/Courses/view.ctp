@@ -46,6 +46,11 @@
 			<?php echo h($course['Course']['textbook']); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Website'); ?></dt>
+		<dd>
+			<?php echo h($course['Course']['website']); ?>
+			&nbsp;
+		</dd>
 		<dt><?php echo __('Materials'); ?></dt>
 		<dd>
 			<?php echo h($course['Course']['materials']); ?>
