@@ -69,4 +69,4 @@
 	?>
 	</div>
 </div>
-<?php echo $this->element('menu'); ?>
+<?php //echo $this->element('menu'); ?>
