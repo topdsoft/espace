@@ -3,7 +3,7 @@
 	<?php foreach ($courses as $course):?>
 		<?php
 			//loop for all courses
-			echo '<h3>'.$course['Course']['name'].' Starts '.$course['CourseSession'][0]['time'].'</h3>';
+			echo '<h3>'.$course['Course']['name'].' Starts '.$this->Time->format($course['CourseSession'][0]['time'],"%a %b %e, %Y %l:%M %P").'</h3>';
 			echo nl2br($course['Course']['description']);
 //			echo '<br>';
 			
