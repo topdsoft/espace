@@ -96,7 +96,7 @@ class Member extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'barcode_hash' => array(
+/*		'barcode_hash' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',
@@ -109,7 +109,7 @@ class Member extends AppModel {
 				'rule' => array('isUnique'),
 				'message' => 'This barcode number is taken',
 				),
-		),
+		),//*/
 		'mins_left' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
