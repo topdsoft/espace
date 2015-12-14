@@ -27,6 +27,16 @@
 			<?php echo h($PAYMENT_TYPES[$payment['Payment']['payment_type']]); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Payment Group'); ?></dt>
+		<dd>
+			<?php echo $this->Html->link($payment['PaymentGroup']['name'],array('controller'=>'paymentGroups','action'=>'view',$payment['Payment']['paymentGroup_id'])); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Course'); ?></dt>
+		<dd>
+			<?php echo $this->Html->link($payment['Course']['name'],array('controller'=>'courses','action'=>'view',$payment['Payment']['course_id'])); ?>
+			&nbsp;
+		</dd>
 		<dt><?php echo __('Notes'); ?></dt>
 		<dd>
 			<?php echo nl2br($payment['Payment']['notes']); ?>

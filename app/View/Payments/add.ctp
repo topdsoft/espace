@@ -12,6 +12,7 @@
 		echo $this->Form->input('amount');
 		echo $this->Form->input('payment_type',array('options'=>$PAYMENT_TYPES));
 		echo $this->Form->input('paymentGroup_id');
+		if(!isset($course)) echo $this->Form->input('course_id');
 		echo $this->Form->input('notes');
 	?>
 	</fieldset>

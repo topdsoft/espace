@@ -57,6 +57,16 @@ class PaymentsController extends AppController {
 				$this->request->data['Payment']['member_id']=$member['Member']['id'];
 			}//endif
 		}//endif
+		//check for passed course_id
+		if(isset($this->passedArgs['course_id'])) {
+			//validate course_id
+			$course=$this->Payment->Course->find('first',array('conditions'=>array('Course.id'=>$this->passedArgs['course_id'])));
+			if($course) {
+				//passed course_id ok
+				$this->set('course',$course);
+				$this->request->data['Payment']['course_id']=$this->passedArgs['course_id'];
+			}//endif
+		}//endif
 		if ($this->request->is('post')) {
 			$this->Payment->create();
 // debug($this->request->data);exit;
@@ -69,7 +79,8 @@ class PaymentsController extends AppController {
 		}
 		$members = $this->Payment->Member->find('list');
 		$paymentGroups = $this->Payment->PaymentGroup->find('list');
-		$this->set(compact('members','paymentGroups'));
+		$courses = array(0=>'(none)')+$this->Payment->Course->find('list');
+		$this->set(compact('members','paymentGroups','courses'));
 	}
 
 /**

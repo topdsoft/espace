@@ -8,6 +8,7 @@
 			<th><?php echo $this->Paginator->sort('member_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('amount'); ?></th>
 			<th><?php echo $this->Paginator->sort('payment_type'); ?></th>
+			<th><?php echo $this->Paginator->sort('payment Group'); ?></th>
 			<th class="actions"></th>
 	</tr>
 	</thead>
@@ -21,6 +22,9 @@
 		</td>
 		<td><?php echo h($payment['Payment']['amount']); ?>&nbsp;</td>
 		<td><?php echo h($PAYMENT_TYPES[$payment['Payment']['payment_type']]); ?>&nbsp;</td>
+		<td>
+			<?php echo $this->Html->link($payment['PaymentGroup']['name'], array('controller' => 'paymentGroups', 'action' => 'view', $payment['PaymentGroup']['id'])); ?>
+		</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $payment['Payment']['id'])); ?>
 		</td>
