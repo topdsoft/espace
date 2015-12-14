@@ -4,6 +4,8 @@ App::uses('AppModel', 'Model');
  * Payment Model
  *
  * @property Member $Member
+ * @property Course $Course
+ * @property PaymentGroup $PaymentGroup
  */
 class Payment extends AppModel {
 
@@ -13,29 +15,9 @@ class Payment extends AppModel {
  * @var array
  */
 	public $validate = array(
-		'member_id' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
 		'amount' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'payment_type' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
+			'money' => array(
+				'rule' => array('money'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -56,6 +38,20 @@ class Payment extends AppModel {
 		'Member' => array(
 			'className' => 'Member',
 			'foreignKey' => 'member_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+		'Course' => array(
+			'className' => 'Course',
+			'foreignKey' => 'course_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+		'PaymentGroup' => array(
+			'className' => 'PaymentGroup',
+			'foreignKey' => 'paymentGroup_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

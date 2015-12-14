@@ -1,3 +1,7 @@
+ALTER TABLE  `payments` ADD  `course_id` INT UNSIGNED NULL AFTER  `payment_type` ;
+
+ALTER TABLE  `payments` ADD  `paymentGroup_id` INT UNSIGNED NULL AFTER  `course_id` ;
+
 # CakePHP
 
 [![Latest Stable Version](https://poser.pugx.org/cakephp/cakephp/v/stable.svg)](https://packagist.org/packages/cakephp/cakephp)
