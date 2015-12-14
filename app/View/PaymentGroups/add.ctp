@@ -8,12 +8,5 @@
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Html->link(__('List Payment Groups'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Payments'), array('controller' => 'payments', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Payment'), array('controller' => 'payments', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
+<?php echo $this->element('menu'); ?>
+<script type='text/javascript'>document.getElementById('PaymentGroupName').focus();</script>

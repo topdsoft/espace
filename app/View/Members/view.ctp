@@ -1,5 +1,5 @@
 <div class="members view">
-<h2><?php echo __('Member'); ?></h2>
+<h2><?php echo __('Member: '.$member['Member']['full_name']); ?></h2>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>

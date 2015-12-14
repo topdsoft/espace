@@ -5,7 +5,7 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
-			<th class="actions"><?php echo __('Actions'); ?></th>
+			<th></th>
 	</tr>
 	</thead>
 	<tbody>
@@ -16,7 +16,7 @@
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $paymentGroup['PaymentGroup']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $paymentGroup['PaymentGroup']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $paymentGroup['PaymentGroup']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $paymentGroup['PaymentGroup']['id']))); ?>
+			<?php // echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $paymentGroup['PaymentGroup']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $paymentGroup['PaymentGroup']['id']))); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
@@ -36,11 +36,10 @@
 	?>
 	</div>
 </div>
+<?php echo $this->element('menu'); ?>
 <div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
+	<h3><?php echo __('Payment Group Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('New Payment Group'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Payments'), array('controller' => 'payments', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Payment'), array('controller' => 'payments', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

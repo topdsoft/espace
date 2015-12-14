@@ -11,6 +11,7 @@
 		if(!isset($member)) echo $this->Form->input('member_id');
 		echo $this->Form->input('amount');
 		echo $this->Form->input('payment_type',array('options'=>$PAYMENT_TYPES));
+		echo $this->Form->input('paymentGroup_id');
 		echo $this->Form->input('notes');
 	?>
 	</fieldset>

@@ -59,6 +59,7 @@ class PaymentsController extends AppController {
 		}//endif
 		if ($this->request->is('post')) {
 			$this->Payment->create();
+// debug($this->request->data);exit;
 			if ($this->Payment->save($this->request->data)) {
 				$this->Session->setFlash(__('The payment has been saved.'),'default',array('class'=>'success'));
 				return $this->redirect(array('action' => 'view',$this->Payment->getInsertId()));
@@ -67,7 +68,8 @@ class PaymentsController extends AppController {
 			}
 		}
 		$members = $this->Payment->Member->find('list');
-		$this->set(compact('members'));
+		$paymentGroups = $this->Payment->PaymentGroup->find('list');
+		$this->set(compact('members','paymentGroups'));
 	}
 
 /**

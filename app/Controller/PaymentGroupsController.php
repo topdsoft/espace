@@ -38,6 +38,7 @@ class PaymentGroupsController extends AppController {
 			throw new NotFoundException(__('Invalid payment group'));
 		}
 		$options = array('conditions' => array('PaymentGroup.' . $this->PaymentGroup->primaryKey => $id));
+		$this->PaymentGroup->recursive = 2;
 		$this->set('paymentGroup', $this->PaymentGroup->find('first', $options));
 	}
 

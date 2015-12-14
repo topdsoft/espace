@@ -48,5 +48,6 @@
 	<h3><?php echo __('Payment Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('New Payment'), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Payment Groups'), array('controller'=>'paymentGroups' ,'action' => 'index')); ?> </li>
 	</ul>
 </div>
