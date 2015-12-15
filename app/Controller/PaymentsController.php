@@ -50,7 +50,7 @@ class PaymentsController extends AppController {
 		//check for passed member_id
 		if(isset($this->passedArgs['member_id'])) {
 			//validate member_id
-			$member=$this->Payment->Member->find('first',array('conditions'=>array('Member.id'=>$this->passedArgs['member_id'])));
+			$member=$this->Payment->Member->find('first',array('conditions'=>array('Member.id'=>$this->passedArgs['member_id']),'recursive'=>0));
 			if($member) {
 				//passed member_id ok
 				$this->set('member',$member);
@@ -60,12 +60,14 @@ class PaymentsController extends AppController {
 		//check for passed course_id
 		if(isset($this->passedArgs['course_id'])) {
 			//validate course_id
-			$course=$this->Payment->Course->find('first',array('conditions'=>array('Course.id'=>$this->passedArgs['course_id'])));
+			$course=$this->Payment->Course->find('first',array('conditions'=>array('Course.id'=>$this->passedArgs['course_id']),'recursive'=>0));
 			if($course) {
 				//passed course_id ok
 				$this->set('course',$course);
 				$this->request->data['Payment']['course_id']=$this->passedArgs['course_id'];
 			}//endif
+			//set default amount for course
+			$this->request->data['Payment']['amount']=$course['Course']['cost'];
 		}//endif
 		if ($this->request->is('post')) {
 			$this->Payment->create();

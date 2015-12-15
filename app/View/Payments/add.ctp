@@ -4,7 +4,11 @@
 		<legend><?php echo __('Add Payment'); 
 			if(isset($member)) {
 				//payment for a specific member
-				echo ' for '.$member['Member']['first_name'].' '.$member['Member']['last_name'];
+				echo ' by '.$member['Member']['first_name'].' '.$member['Member']['last_name'];
+			}//endif
+			if(isset($course)){
+				//payment for a specific course
+				echo ' for course '.$course['Course']['name'];
 			}//endif
 		?></legend>
 	<?php

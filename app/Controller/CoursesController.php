@@ -136,7 +136,9 @@ class CoursesController extends AppController {
 				$this->Course->CoursesMember->create();
 				if ($this->Course->CoursesMember->save($this->request->data)) {
 					$this->Session->setFlash(__('Member is signed up.'),'default',array('class'=>'success'));
-					return $this->redirect(array('controller'=>'payments','action' => 'add','member_id'=>$this->request->data['CoursesMember']['member_id']));
+					return $this->redirect(array('controller'=>'payments','action' => 'add',
+						'member_id'=>$this->request->data['CoursesMember']['member_id'],
+						'course_id'=>$id));
 				} else {
 					$this->Session->setFlash(__('Member could not be signed up. Please, try again.'));
 				}//endif
