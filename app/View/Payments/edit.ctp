@@ -6,7 +6,8 @@
 		echo $this->Form->input('id');
 //		echo $this->Form->input('member_id');
 		echo $this->Form->input('amount');
-		echo $this->Form->input('payment_type');
+		echo $this->Form->input('payment_type',array('options'=>$PAYMENT_TYPES));
+		echo $this->Form->input('paymentGroup_id');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

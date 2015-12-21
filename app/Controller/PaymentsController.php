@@ -108,7 +108,8 @@ class PaymentsController extends AppController {
 			$this->request->data = $this->Payment->find('first', $options);
 		}
 		$members = $this->Payment->Member->find('list');
-		$this->set(compact('members'));
+		$paymentGroups = array(0=>'(none)')+$this->Payment->PaymentGroup->find('list');
+		$this->set(compact('members','paymentGroups'));
 	}
 
 /**
