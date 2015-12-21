@@ -1,4 +1,5 @@
 <div class="members view">
+<?php //debug($member); ?>
 <h2><?php echo __('Member: '.$member['Member']['full_name']); ?></h2>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
@@ -66,6 +67,21 @@
 			<?php echo h($member['Member']['mins_left_monthly']); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Mailing Address'); ?></dt>
+		<dd>
+			<?php echo nl2br($member['Member']['mailing_address']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Emergency Contact Name'); ?></dt>
+		<dd>
+			<?php echo h($member['Member']['emergency_contact_name']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Emergency Contact Phone'); ?></dt>
+		<dd>
+			<?php echo h($member['Member']['emergency_contact_phone']); ?>
+			&nbsp;
+		</dd>
 	</dl>
 </div>
 <?php echo $this->element('menu'); ?>
@@ -80,8 +96,8 @@
 	</ul>
 </div>
 <div class="related">
-	<h3><?php echo __('Member Logins'); ?></h3>
 	<?php if (!empty($member['Login'])): ?>
+	<h3><?php echo __('Member Logins'); ?></h3>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
 		<th><?php echo __('Time In'); ?></th>
@@ -111,26 +127,27 @@
 	</table>
 <?php endif; ?>
 
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Login'), array('controller' => 'logins', 'action' => 'add')); ?> </li>
-		</ul>
-	</div>
 </div>
 <div class="related">
-	<h3><?php echo __('Related Payments'); ?></h3>
+	<h3><?php echo __('Related Payments'); //debug($member['Payment']);?></h3>
 	<?php if (!empty($member['Payment'])): ?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
 		<th><?php echo __('Date'); ?></th>
 		<th><?php echo __('Amount'); ?></th>
 		<th><?php echo __('Payment Type'); ?></th>
+		<th></th>
 	</tr>
 	<?php foreach ($member['Payment'] as $payment): ?>
 		<tr>
 			<td><?php echo $payment['created']; ?></td>
 			<td><?php echo $payment['amount']; ?></td>
 			<td><?php echo $PAYMENT_TYPES[$payment['payment_type']]; ?></td>
+			<td class="actions">
+				<?php echo $this->Html->link(__('View'), array('controller' => 'payments', 'action' => 'view', $payment['id'])); ?>
+				<?php //echo $this->Html->link(__('Edit'), array('controller' => 'logins', 'action' => 'edit', $login['id'])); ?>
+				<?php //echo $this->Form->postLink(__('Delete'), array('controller' => 'logins', 'action' => 'delete', $login['id']), array(), __('Are you sure you want to delete # %s?', $login['id'])); ?>
+			</td>
 		</tr>
 	<?php endforeach; ?>
 	</table>
@@ -147,13 +164,11 @@
 	<?php if (!empty($member['Course'])): //debug($member['Course']);?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
-		<th><?php //echo __('Instructor Id'); ?></th>
 		<th><?php echo __('Name'); ?></th>
 		<th><?php echo __('Cost'); ?></th>
 	</tr>
 	<?php foreach ($member['Course'] as $course): ?>
 		<tr>
-			<td><?php //echo $course['instructor_id']; ?></td>
 			<td><?php echo $this->Html->link($course['name'],array('controller'=>'courses' ,'action'=>'view',$course['id'])); ?></td>
 			<td><?php echo $course['cost']; ?></td>
 		</tr>
