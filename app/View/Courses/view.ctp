@@ -13,7 +13,7 @@
 		</dd>
 		<dt><?php echo __('Instructor'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($course['Instructor']['username'], array('controller' => 'members', 'action' => 'view', $course['Instructor']['id'])); ?>
+			<?php echo $this->Html->link($course['Instructor']['full_name'], array('controller' => 'members', 'action' => 'view', $course['Instructor']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Created'); ?></dt>
@@ -53,7 +53,7 @@
 		</dd>
 		<dt><?php echo __('Website'); ?></dt>
 		<dd>
-			<?php echo h($course['Course']['website']); ?>
+			<?php if(!empty($course['Course']['website'])) echo $this->Html->link($course['Course']['website']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Materials'); ?></dt>

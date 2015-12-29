@@ -21,6 +21,11 @@
 			<?php echo $this->Html->link($course['Instructor']['full_name'], array('controller' => 'members', 'action' => 'view', $course['Instructor']['id'])); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Website'); ?></dt>
+		<dd>
+			<?php if(!empty($course['Course']['website'])) echo $this->Html->link($course['Course']['website']); ?>	
+			&nbsp;
+		</dd>
 		<dt><?php echo __('Course Dates'); ?></dt>
 		<dd>
 			<?php
