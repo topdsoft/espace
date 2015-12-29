@@ -33,7 +33,7 @@ class CoursesController extends AppController {
  */
 	public function upcoming() {
 		$this->Course->recursive = 1;
-		$this->set('courses', $this->Paginator->paginate());
+		$this->set('courses', $this->Paginator->paginate(array('Course.completed'=>false)));
 	}
 
 /**
@@ -121,7 +121,7 @@ class CoursesController extends AppController {
 		} else $member=null;
 		$this->set('course',$course);
 		$this->set('member',$member);
-		$this->set('courses',$this->Course->find('list'));
+		$this->set('courses',$this->Course->find('list',array('conditions'=>array('not completed'))));
 		$this->set('members',$this->Course->Member->find('list',array('conditions'=>array('active'))));
 		if ($this->request->is(array('post', 'put'))) {
 			//return from submit

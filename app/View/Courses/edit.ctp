@@ -4,6 +4,7 @@
 		<legend><?php echo __('Edit Course'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
+		echo $this->Form->input('completed');
 		echo $this->Form->input('instructor_id');
 		echo $this->Form->input('name',array('label'=>'Course Name'));
 		echo $this->Form->input('description');

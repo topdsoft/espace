@@ -1,9 +1,14 @@
 <div class="courses view">
-<h2><?php echo __('Course'); ?></h2>
+<h2><?php echo __('Course: ').$course['Course']['name']; ?></h2>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
 			<?php echo h($course['Course']['id']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Completed'); ?></dt>
+		<dd>
+			<?php if($course['Course']['completed']) echo "Y";else echo"N"; ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Instructor'); ?></dt>
