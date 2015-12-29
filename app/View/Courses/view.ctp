@@ -126,7 +126,8 @@
 			echo $this->Time->format($session['time'],'%a %b %e, %Y %l:%M %P').' - '.$this->Time->format($new_time,'%l:%M %P'); ?></td>
 			<td class="actions">
 				<?php //echo $this->Html->link(__('View'), array('controller' => 'sessions', 'action' => 'view', $session['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'courseSessions', 'action' => 'edit', $session['id'])); ?>
+				<?php echo $this->Html->link(__('Edit'), array('controller' => 'courseSessions', 'action' => 'edit', $session['id'],
+					'redirect'=>array('controller'=>'courses','action'=>'view',$course['Course']['id']))); ?>
 				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'courseSessions', 'action' => 'delete', $session['id']), array(), __('Are you sure you want to delete # %s?', $session['id'])); ?>
 			</td>
 		</tr>
@@ -147,22 +148,20 @@
 	<table cellpadding = "0" cellspacing = "0">
 	<thead>
 	<tr>
-		<th><?php echo __('Username'); ?></th>
-		<th><?php echo __('Email'); ?></th>
-		<th><?php echo __('Phone'); ?></th>
 		<th><?php echo __('First Name'); ?></th>
 		<th><?php echo __('Last Name'); ?></th>
+		<th><?php echo __('Email'); ?></th>
+		<th><?php echo __('Phone'); ?></th>
 		<th></th>
 	</tr>
 	</thead>
 	<tbody>
 	<?php foreach ($course['Member'] as $member): ?>
 		<tr>
-			<td><?php echo $member['username']; ?></td>
-			<td><?php echo $member['email']; ?></td>
-			<td><?php echo $member['phone']; ?></td>
 			<td><?php echo $member['first_name']; ?></td>
 			<td><?php echo $member['last_name']; ?></td>
+			<td><?php echo $member['email']; ?></td>
+			<td><?php echo $member['phone']; ?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View'), array('controller' => 'members', 'action' => 'view', $member['id'])); ?>
 			</td>

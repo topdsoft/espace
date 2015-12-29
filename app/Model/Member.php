@@ -12,7 +12,7 @@ class Member extends AppModel {
 
 	public $order ='last_name';
 	public $virtualFields = array(
-		'full_name' => "CONCAT(last_name, ',', first_name)"
+		'full_name' => "CONCAT(first_name, ' ', last_name)"
 	);
 	public $displayField = 'full_name';
 

@@ -66,8 +66,8 @@ class CoursesController extends AppController {
 				$this->Session->setFlash(__('The course could not be saved. Please, try again.'));
 			}
 		}
-		$instructors = $this->Course->Instructor->find('list');
-		$members = $this->Course->Member->find('list');
+		$instructors = $this->Course->Instructor->find('list',array('conditions'=>array('active')));
+		$members = $this->Course->Member->find('list',array('conditions'=>array('active')));
 		$this->set(compact('instructors', 'members'));
 	}
 
@@ -93,8 +93,8 @@ class CoursesController extends AppController {
 			$options = array('conditions' => array('Course.' . $this->Course->primaryKey => $id));
 			$this->request->data = $this->Course->find('first', $options);
 		}
-		$instructors = $this->Course->Instructor->find('list');
-		$members = $this->Course->Member->find('list');
+		$instructors = $this->Course->Instructor->find('list',array('conditions'=>array('active')));
+		$members = $this->Course->Member->find('list',array('conditions'=>array('active')));
 		$this->set(compact('instructors', 'members'));
 	}
 

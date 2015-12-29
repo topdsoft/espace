@@ -94,8 +94,9 @@ class CourseSessionsController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->CourseSession->save($this->request->data)) {
-				$this->Session->setFlash(__('The course session has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				$this->Session->setFlash(__('The course session has been updated.'),'default',array('class'=>'success'));
+				if(isset($this->passedArgs['redirect'])) return $this->redirect($this->passedArgs['redirect']);
+				return $this->redirect(array('controller'=>'courses','action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The course session could not be saved. Please, try again.'));
 			}
