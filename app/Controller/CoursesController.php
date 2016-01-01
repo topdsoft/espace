@@ -33,6 +33,7 @@ class CoursesController extends AppController {
  */
 	public function upcoming() {
 		$this->Course->recursive = 1;
+		$this->Course->order=array('start_time');
 		$this->set('courses', $this->Paginator->paginate(array('Course.completed'=>false)));
 	}
 

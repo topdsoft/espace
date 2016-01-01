@@ -21,6 +21,11 @@
 			<?php echo h($course['Course']['created']); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Start Time'); ?></dt>
+		<dd>
+			<?php echo h($course['Course']['start_time']); ?>
+			&nbsp;
+		</dd>
 		<dt><?php echo __('Name'); ?></dt>
 		<dd>
 			<?php echo h($course['Course']['name']); ?>

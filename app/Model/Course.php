@@ -18,6 +18,7 @@ class Course extends AppModel {
 	public $virtualFields = array(
 		'signedup'=>'select count(*) from courses_members where courses_members.course_id=Course.id',
 		'course_sessions'=>'select count(*) from courseSessions where courseSessions.course_id=Course.id',
+		'start_time'=>'select courseSessions.time from courseSessions where courseSessions.course_id=Course.id order by courseSessions.time limit 1',
 	);
 
 /**
@@ -117,7 +118,7 @@ class Course extends AppModel {
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',
-			'order' => '',
+			'order' => 'CourseSession.time',
 			'limit' => '',
 			'offset' => '',
 			'exclusive' => '',

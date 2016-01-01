@@ -1,4 +1,4 @@
-<div class="courses index">
+<div class="courses">
 	<h2><?php echo __('E::SPACE Upcoming Courses'); ?></h2>
 	<?php foreach ($courses as $course):?>
 		<?php
