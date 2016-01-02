@@ -82,6 +82,38 @@ class CourseSessionsController extends AppController {
 	}
 
 /**
+ * smartadd method
+ *
+ * course_id passed arg to pre-select course_id
+ * 
+ * @return void
+ */
+	public function smartadd() {
+		
+		if ($this->request->is('post')) {
+		} else {
+			//build upcomming calendar of courses
+			$weeks=12; //#of weeks to display
+			$totalDays=$weeks*7;
+			$nextDate=strtotime('sunday last week');
+			$calanderArray=array();//one element for each day
+			for($w=0; $w<$weeks; $w++) {//loop for weeks
+				for($d=0; $d<7; $d++) {
+					//loop for each day in week
+					$calanderArray[$w][$d]['date']=$nextDate;
+					$nextDate=strtotime('+ 1 day',$nextDate);//get date form last date +1 day
+					$calanderArray[$w][$d]['outputDate']=date('D M j',$calanderArray[$w][$d]['date']);
+					//find courses for this date
+					$calanderArray[$w][$d]['Courses']=$this->CourseSession->find('all',
+						array('recursive'=>0,'conditions'=>array('date(CourseSession.time)'=>date('Y-m-d',$calanderArray[$w][$d]['date']))));
+				}//next d
+			}//next w
+			$this->set('calanderArray',$calanderArray);
+//debug(date('Y-m-d',$nextDate)); debug($calanderArray);exit();
+		}//endif ispost
+	}//end public function smartadd
+	
+/**
  * edit method
  *
  * @throws NotFoundException
