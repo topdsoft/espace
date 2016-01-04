@@ -45,6 +45,7 @@ class CourseSessionsController extends AppController {
  * add method
  *
  * course_id passed arg to pre-select course_id
+ * time passed arg for default time and date
  * 
  * @return void
  */
@@ -61,6 +62,7 @@ class CourseSessionsController extends AppController {
 // debug($course);exit;
 			}//endif
 		}//endif
+		if(isset($this->passedArgs['time'])) $this->request->data['CourseSession']['time']=$this->passedArgs['time'];
 		if ($this->request->is('post')) {
 			$this->CourseSession->create();
 			if ($this->CourseSession->save($this->request->data)) {
@@ -77,7 +79,7 @@ class CourseSessionsController extends AppController {
 				if($s) $this->request->data['CourseSession']['time']=$s['CourseSession']['time'];
 			}//endif
 		}//endif 
-		$courses = $this->CourseSession->Course->find('list');
+		$courses = $this->CourseSession->Course->find('list',array('conditions'=>array('Course.completed'=>false)));
 		$this->set(compact('courses'));
 	}
 
@@ -89,6 +91,18 @@ class CourseSessionsController extends AppController {
  * @return void
  */
 	public function smartadd() {
+		//check for course_id passed parameter
+//debug($this->passedArgs);
+		if(isset($this->passedArgs['course_id'])) {
+			//course_id has been passed
+			$course=$this->CourseSession->Course->find('first',array('conditions'=>array('Course.id'=>$this->passedArgs['course_id'])));
+			if($course){
+				//course id is valid
+				$this->request->data['CourseSession']['course_id']=$this->passedArgs['course_id'];
+				$this->set('course',$course);
+// debug($course);exit;
+			}//endif
+		}//endif
 		
 		if ($this->request->is('post')) {
 		} else {
@@ -103,9 +117,12 @@ class CourseSessionsController extends AppController {
 					$calanderArray[$w][$d]['date']=$nextDate;
 					$nextDate=strtotime('+ 1 day',$nextDate);//get date form last date +1 day
 					$calanderArray[$w][$d]['outputDate']=date('D M j',$calanderArray[$w][$d]['date']);
+					$calanderArray[$w][$d]['sqlDate']=date('Y-m-d 18:00:00',$calanderArray[$w][$d]['date']);
 					//find courses for this date
 					$calanderArray[$w][$d]['Courses']=$this->CourseSession->find('all',
-						array('recursive'=>0,'conditions'=>array('date(CourseSession.time)'=>date('Y-m-d',$calanderArray[$w][$d]['date']))));
+						array('recursive'=>0,
+						'fields'=>array('Course.name','Course.id'),
+						'conditions'=>array('date(CourseSession.time)'=>date('Y-m-d',$calanderArray[$w][$d]['date']))));
 				}//next d
 			}//next w
 			$this->set('calanderArray',$calanderArray);

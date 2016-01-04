@@ -13,10 +13,14 @@
 			foreach($week as $day) {
 				//loop for all days in week
 				echo '<td>';
-				echo ''.$day['outputDate'].'';
-				foreach($day['Courses'] as $course) {
+				echo ''.$day['outputDate'].'<br>';
+				if(isset($course)) echo '<br>'.$this->Html->link(__('+Add: ').$course['Course']['name'].'+',
+					array('controller'=>'courseSessions','action'=>'add','time'=>$day['sqlDate'],'course_id'=>$course['Course']['id']));
+				else echo '<br>'.$this->Html->link(__('+Add Session+'),array('controller'=>'courseSessions','action'=>'add','time'=>$day['sqlDate']));
+				if($day['Courses']) echo '<br><br><strong>Exsisting Courses:</strong>';
+				foreach($day['Courses'] as $c) {
 					//loop for each course on this day
-					echo '<br>'.$this->Html->link($course['Course']['name'],array('controller'=>'courses','action'=>'view',$course['Course']['id']));
+					echo '<br>'.$this->Html->link($c['Course']['name'],array('controller'=>'courses','action'=>'view',$c['Course']['id']));
 				}//next course
 				echo '</td>';
 			}//end day loop

@@ -6,7 +6,7 @@
 			if(isset($course)) echo ' to '.$course['Course']['name'];
 		?></legend>
 	<?php
-		if($this->data['CourseSession']['course_id']) {
+		if(isset($this->data['CourseSession']['course_id']) && $this->data['CourseSession']['course_id']) {
 			//course_id is passed in
 			echo '<p><strong>Current Sessions</strong>';
 			foreach($course['CourseSession'] as $session) {
