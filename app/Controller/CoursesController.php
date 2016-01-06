@@ -45,11 +45,13 @@ class CoursesController extends AppController {
  * @return void
  */
 	public function view($id = null) {
+		$this->Course->recursive = 2;
 		if (!$this->Course->exists($id)) {
 			throw new NotFoundException(__('Invalid course'));
 		}
 		$options = array('conditions' => array('Course.' . $this->Course->primaryKey => $id));
 		$this->set('course', $this->Course->find('first', $options));
+		$this->set('paymentGroups', $this->Course->Payment->PaymentGroup->find('list'));
 	}
 
 /**

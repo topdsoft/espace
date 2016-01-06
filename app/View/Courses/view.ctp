@@ -168,7 +168,7 @@
 			<td><?php echo $member['email']; ?></td>
 			<td><?php echo $member['phone']; ?></td>
 			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'members', 'action' => 'view', $member['id'])); ?>
+				<?php echo $this->Html->link(__('View Student'), array('controller' => 'members', 'action' => 'view', $member['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>
@@ -181,4 +181,36 @@
 			<li><?php echo $this->Html->link(__('Signup Member'), array('controller' => 'courses', 'action' => 'signup',$course['Course']['id'])); ?> </li>
 		</ul>
 	</div>
+</div>
+
+<div class="related">
+	<?php if (!empty($course['Payment'])): ?>
+	<h3><?php echo __('Payments'); ?></h3>
+	<table cellpadding = "0" cellspacing = "0">
+	<thead>
+	<tr>
+		<th><?php echo __('Id'); ?></th>
+		<th><?php echo __('Name'); ?></th>
+		<th><?php echo __('Amount'); ?></th>
+		<th><?php echo __('Payment Type'); ?></th>
+		<th><?php echo __('Payment Group'); ?></th>
+		<th></th>
+	</tr>
+	</thead>
+	<tbody>
+	<?php foreach ($course['Payment'] as $payment): ?>
+		<tr>
+			<td><?php echo $payment['id']; ?></td>
+			<td><?php echo $this->html->link($payment['Member']['full_name'],array('controller'=>'members','action'=>'view',$payment['Member']['id'])) ; ?></td>
+			<td><?php echo $payment['amount']; ?></td>
+			<td><?php echo $PAYMENT_TYPES[$payment['payment_type']]; ?></td>
+			<td><?php echo $this->html->link($paymentGroups[$payment['paymentGroup_id']],array('controller'=>'paymentGroups','action'=>'view',$payment['paymentGroup_id'])) ; ?></td>
+			<td class="actions">
+				<?php echo $this->Html->link(__('View Payment'), array('controller' => 'payments', 'action' => 'view', $payment['id'])); ?>
+			</td>
+		</tr>
+	<?php endforeach; ?>
+	</tbody>
+	</table>
+<?php endif; ?>
 </div>
