@@ -169,6 +169,8 @@
 			<td><?php echo $member['phone']; ?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View Student'), array('controller' => 'members', 'action' => 'view', $member['id'])); ?>
+				<?php echo $this->Form->postLink(__('Remove Student'), array('action' => 'removestudent', $member['CoursesMember']['id']), 
+					array('confirm' => __('Are you sure you want to remove student %s?', $member['full_name']))); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>

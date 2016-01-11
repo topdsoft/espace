@@ -152,6 +152,30 @@ class CoursesController extends AppController {
 	}
 
 /**
+ * removestudent method
+ *
+ * @throws NotFoundException
+ * @param string $id is the coursesStudent id
+ * @return void
+ */
+	public function removestudent($id = null) {
+		$this->Course->CoursesMember->id = $id;
+		if (!$this->Course->CoursesMember-> exists()) {
+			throw new NotFoundException(__('Invalid course'));
+		}
+		$this->request->allowMethod('post', 'delete');
+		//find record
+		$CS=$this->Course->CoursesMember->find('first',array('conditions'=>array('CoursesMember.id'=>$id)));
+//debug($CS);exit();
+		if ($this->Course->CoursesMember->delete()) {
+			$this->Session->setFlash(__('The Student has been removed.'));
+		} else {
+			$this->Session->setFlash(__('The Student could not be removed. Please, try again.'));
+		}
+		return $this->redirect(array('action' => 'view',$CS['CoursesMember']['course_id']));
+	}
+
+/**
  * delete method
  *
  * @throws NotFoundException
