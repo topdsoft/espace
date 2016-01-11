@@ -78,6 +78,9 @@ class PaymentsController extends AppController {
 			} else {
 				$this->Session->setFlash(__('The payment could not be saved. Please, try again.'));
 			}
+		} else {
+			//defualts
+			$this->request->data['Payment']['payment_type']=6;
 		}
 		$members = $this->Payment->Member->find('list');
 		$paymentGroups = $this->Payment->PaymentGroup->find('list');
