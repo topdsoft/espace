@@ -16,7 +16,8 @@
 	<tbody>
 	<?php foreach ($courses as $course): ?>
 	<tr>
-		<td><?php echo h($course['Course']['name']); ?>&nbsp;</td>
+		<td><?php if($course['Course']['completed']) echo '<font color="blue">'.h($course['Course']['name']).'</font>'; 
+			else echo h($course['Course']['name']);?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($course['Instructor']['full_name'], array('controller' => 'members', 'action' => 'view', $course['Instructor']['id'])); ?>
 		</td>
