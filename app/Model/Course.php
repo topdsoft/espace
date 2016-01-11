@@ -15,6 +15,7 @@ class Course extends AppModel {
  * @var string
  */
 	public $displayField = 'name';
+	public $order = 'start_time';
 	public $virtualFields = array(
 		'signedup'=>'select count(*) from courses_members where courses_members.course_id=Course.id',
 		'course_sessions'=>'select count(*) from courseSessions where courseSessions.course_id=Course.id',
