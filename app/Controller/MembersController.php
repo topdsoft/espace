@@ -32,6 +32,21 @@ class MembersController extends AppController {
 	}
 
 /**
+ * export CSV
+ */
+	public function exportcsv() {
+		$this->Member->recursive=0;
+		$options=array('conditions'=>array('Member.active'),'fields'=>array('Member.email','Member.first_name','Member.last_name'));
+		$members=$this->Member->find('all',$options);
+		$this->set('members',$members);
+		$this->response->download("members.csv");
+		$this->layout='ajax';
+// debug($members);exit;
+//		$output = fopen('php://output', 'w');
+//		fputcsv($output,array('Email Address','First','Last'));
+	}
+
+/**
  * view method
  *
  * @throws NotFoundException

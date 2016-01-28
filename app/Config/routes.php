@@ -35,7 +35,8 @@
  * how to customize the loading of plugin routes.
  */
 	CakePlugin::routes();
-
+// added for csv output
+	Router::parseExtensions('csv');
 /**
  * Load the CakePHP default routes. Only remove this if you do not want to use
  * the built-in default routes.
