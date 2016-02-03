@@ -98,7 +98,7 @@
 		<dt><?php echo __('Income / Hour'); ?></dt>
 		<dd>
 			<?php 
-			echo '$'.$instructorIncome/$totalHours; ?>
+			echo '$'.number_format($instructorIncome/$totalHours,2); ?>
 			&nbsp;
 		</dd>
 	</dl>
