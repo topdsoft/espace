@@ -55,6 +55,26 @@ class CoursesController extends AppController {
 	}
 
 /**
+ * export CSV
+ */
+	public function exportcsv($id=null) {
+//		$this->Course->Member->recursive=0;
+		if (!$this->Course->exists($id)) {
+			throw new NotFoundException(__('Invalid course'));
+		}
+//		$options=array('conditions'=>array('Member.active'));
+		$options = array('conditions' => array('Course.' . $this->Course->primaryKey => $id));
+		$course=$this->Course->find('all',$options);
+		$members=$course[0]['Member'];
+		$this->set('members',$members);
+		$this->response->download("members.csv");
+		$this->layout='ajax';
+//debug($course[0]['Member']);exit;
+//		$output = fopen('php://output', 'w');
+//		fputcsv($output,array('Email Address','First','Last'));
+	}
+
+/**
  * add method
  *
  * @return void

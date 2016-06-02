@@ -180,6 +180,7 @@
 
 	<div class="actions">
 		<ul>
+			<li><?php if(!empty($course['Member'])) echo $this->Html->link(__('Export CSV'), array('controller' => 'courses', 'action' => 'exportcsv',$course['Course']['id'])); ?> </li>
 			<li><?php echo $this->Html->link(__('Signup Member'), array('controller' => 'courses', 'action' => 'signup',$course['Course']['id'])); ?> </li>
 		</ul>
 	</div>
